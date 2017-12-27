@@ -1,4 +1,4 @@
-Thank You for Purchasing Slidefolio theme by Surfmandu.
+Theme by Surfmandu. Further Editing by Daniel Braun aka. Gismo150
 
 What is inside the package. 
 1. Bootstrap Css/JS
