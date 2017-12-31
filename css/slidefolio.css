@@ -415,7 +415,7 @@ footer {
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
 }
 
-.px500:hover{
+.github:hover{
     color: black;
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
 }
