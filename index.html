@@ -8,9 +8,11 @@
 
     <title>Sven Baumeyer | Photography</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet"> <!--CDN?-->
     <!-- Add custom CSS here -->
     <link href="css/slidefolio.css" rel="stylesheet">
+    <!--TwentyTwenty core CSS-->
+    <link href="css/twentytwenty.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
 </head>
@@ -363,27 +365,42 @@
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="service-item">
-                    <h3>Antonia</h3>
-                    <img class="thumbnail" alt="nature" src="backgrounds/antonia4.jpg"/>
+                    <div id='worflow1' class='twentytwenty-container'>
+                        <img src='workflow/slider1-before.jpg'>
+                        <img src='workflow/slider1-after.jpg'>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 text-center">
                 <div class="service-item">
-                    <h3>Laura</h3>
-                    <img class="thumbnail" alt="nature" src="backgrounds/lauras7.jpg"/>
+                    <div id='worflow4' class="twentytwenty-container">
+                        <img src='workflow/slider4-before.jpg'>
+                        <img src='workflow/slider4-after.jpg'>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="col-md-4 text-center">
-               <div class="service-item">
-                 <i class="service-icon fa fa-globe fa-3x"></i>
-                 <h3>Web Design</h3>
-                 <p>Ad has dicat ridens consetetur, eos eu option persius. Mollis cotidieque conclusionemque per id, ne nam alienum liberavisse.</p>
-               </div>
-             </div>-->
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow3' class="twentytwenty-container">
+                        <img src='workflow/slider3-before.jpg'>
+                        <img src='workflow/slider3-after.jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow2' class="twentytwenty-container">
+                        <img src='workflow/slider2-before.jpg'>
+                        <img src='workflow/slider2-after.jpg'>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 <!-- /workflow -->
+
 <!-- Contact -->
 <div id="contact">
     <div class="container">
@@ -394,7 +411,9 @@
             </div>
             <div class="col-md-5 col-md-offset-3">
                 <!-- contact form starts -->
-                <form action="contact" id="contact-form" class="form-horizontal">
+                <!--<form action="contact" id="contact-form" class="form-horizontal">-->
+                <form action="https://formspree.io/gismo155@outlook.com"
+                      method="POST" id="contact-form" class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="name">Name</label>
@@ -425,7 +444,7 @@
                             </div>
                         </div>
                         <div class="col-sm-offset-4 col-sm-8">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success" value="Send">Submit</button>
                             <button type="reset" class="btn btn-primary">Cancel</button>
                         </div>
                     </fieldset>
@@ -462,6 +481,8 @@
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/bootstrap.js"></script>
+<script  src="js/jquery.event.move.js"></script>
+<script  src="js/jquery.twentytwenty.js"></script>
 
 <!-- Slideshow Background  -->
 <script>
@@ -519,6 +540,30 @@
     });
 </script>
 <!-- /Navbar-->
+
+<!--TwentyTwenty-Setup-->
+<script type="text/javascript">
+    $(window).load(function () {
+        $(function(){
+            $(".twentytwenty-container").twentytwenty({
+                default_offset_pct: 0.5, // How much of the before image is visible when the page loads
+                orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
+                before_label: 'Before', // Set a custom before label
+                after_label: 'After', // Set a custom after label
+                no_overlay: false, //Do not show the overlay with before and after
+                move_slider_on_hover: false, // Move slider on mouse hover?
+                move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement.
+                click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
+            });
+        });
+        $("#workflow1").twentytwenty();
+        $("#workflow2").twentytwenty();
+        $("#workflow3").twentytwenty();
+        $("#workflow4").twentytwenty();
+    });
+</script>
+<!-- /TwentyTwenty-Setup-->
+
 
 </body>
 
