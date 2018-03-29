@@ -224,9 +224,9 @@ var controller;
             EDITOR.vsEditor.setValue(localStorage.getItem("vs"), -1);
             EDITOR.fsEditor.setValue(localStorage.getItem("fs"), -1);
         } else {
-            EDITOR.setEditorTextFromFile("./src/demo/ColorizedCube/vertexShader.vert", EDITOR.vsEditor);
-            EDITOR.setEditorTextFromFile("./src/demo/ColorizedCube/fragmentShader.frag", EDITOR.fsEditor);
-            EDITOR.setEditorTextFromFile("./src/demo/ColorizedCube/webgl.js", EDITOR.webglEditor);
+            EDITOR.setEditorTextFromFile("./src/demo/ShadedCube/vertexShader.vert", EDITOR.vsEditor);
+            EDITOR.setEditorTextFromFile("./src/demo/ShadedCube/fragmentShader.frag", EDITOR.fsEditor);
+            EDITOR.setEditorTextFromFile("./src/demo/ShadedCube/webgl.js", EDITOR.webglEditor);
         }
     }
 

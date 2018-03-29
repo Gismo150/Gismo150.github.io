@@ -172,10 +172,6 @@
             <li id="texLoader" class="navigation_item">Texture Loader <i class="fa fa-link navigation_icon"></i>
             </li>
         </a>
-        <!-- <a target="_blank" href="./JsDoc/controller/Controller.html"  style="text-decoration:none">
-             <li id="controller" class="navigation_item">Controller<i class="fa fa-link navigation_icon"></i>
-             </li>
-         </a>-->
         <a target="_blank" href="http://glmatrix.net/docs/module-glMatrix.html" style="text-decoration:none">
             <li id="glMatrix" class="navigation_item">GlMatrix<i class="fa fa-link navigation_icon"></i>
             </li>
@@ -455,7 +451,6 @@
     window.onload = EDITOR.initEditor();
     window.addEventListener("resize", EDITOR.resizeCanvas);
     window.onload = EDITOR.resizeCanvas();
-
     jQuery(document).ready(function () {
         jQuery('#vertices').connections({to: '#vertShad', 'class': 'btn_line'});
         jQuery('#vertShad').connections({to: '#primProcAssem', 'class': 'btn_line'});
@@ -466,6 +461,23 @@
         jQuery('#fragShad').connections({to: '#frameBuffer', 'class': 'btn_line'});
         window.onload = EDITOR.resizeCanvas();
     });
+    /*
+    jQuery.fn.simulateClick = function() {
+        return this.each(function() {
+            if('createEvent' in document) {
+                var doc = this.ownerDocument,
+                    evt = doc.createEvent('MouseEvents');
+                evt.initMouseEvent('click', true, true, doc.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+                this.dispatchEvent(evt);
+            } else {
+                this.click(); // IE Boss!
+            }
+        });
+    }
+    jQuery(document).ready(function(){
+            jQuery('#startRun').simulateClick('click');
+    });
+*/
 
 
 </script>
