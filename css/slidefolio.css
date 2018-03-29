@@ -420,6 +420,11 @@ footer {
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
 }
 
+.gitlab:hover{
+    color: orangered;
+    transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
+}
+
 .hrOnWhite{
     margin-top: 20px;
     margin-bottom: 20px;

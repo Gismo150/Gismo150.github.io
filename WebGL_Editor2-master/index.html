@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="user-scalable=no">
+    <title>WebGL-Editor</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="js/reveal/reveal.css">
+    <script type="text/javascript" src="js/WebGL-Editor/webgl-utils.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/controller.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/webgl-debug-utils.js"></script>
+    <script type="text/javascript" src="js/gl-matrix/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="js/stats/stats.min.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/webgl-obj-loader.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/webgl-texture-loader.js"></script>
+    <script type="text/javascript" src="js/FileSaver-EliGrey/fileSaver.js"></script>
+    <script type="text/javascript" src="js/FileSaver-EliGrey/Blob.js"></script>
+    <script type="text/javascript" src="js/FileSaver-EliGrey/canvas-toBlob.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip.min.js"></script>
+    <script type="text/javascript" src="js/jszip/jszip-utils.min.js"></script>
+    <script type="text/javascript" src="js/spin/spin-min.js"></script>
+    <script type="text/javascript" src="js/Hammer/hammer-2.0.8-2016.04.23.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/connections/jquery.connections.js"></script>
+    <script type="text/javascript" src="js/reveal/jquery.reveal.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/WebGL-Editor-utils.js"></script>
+    <script type="text/javascript" src="js/WebGL-Editor/menu.js"></script>
+    <script type="text/javascript" src="js/ace/src-noconflict/ace.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/ace/src-noconflict/ext-language_tools.js"></script>
+    <script type="text/javascript" src="js/ace/src-noconflict/snippets/javascript.js"></script>
+    <script type="text/javascript" src="js/orbit/orbit.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/WebGL-Editor.css">
+</head>
+
+<body id="body">
+<!--[if lt IE 8]>
+<p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<i id="blur_background"></i>
+
+<div id="sidebar_mainmenu" class="sidebar_menu hide_menu noSelect">
+
+    <h2 class="tab_title noSelect"><br>WebGL-Editor</h2>
+    <ul id="navigation" class="navigation_selection">
+        <li id="demo" class="navigation_item">Demo <i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="src" class="navigation_item">Sources <i class="fa fa-code navigation_icon"></i></li>
+        <li id="docu" class="navigation_item">Documentation <i class="fa fa-question-circle navigation_icon"></i></li>
+        <li id="about" class="navigation_item">About <i class="fa fa-info-circle navigation_icon"></i></li>
+    </ul>
+</div>
+
+<div id="demo_sidebar" class="sidebar_submenu hide_menu noSelect">
+    <a id="return_from_demo" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">WebGL Demos</h2>
+
+    <ul id="navigation_demo" class="navigation_selection">
+        <li id="demo1" class="navigation_item">Colorized Cube<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo2" class="navigation_item">Rotating DNA<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo3" class="navigation_item">Shaded Cube<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo4" class="navigation_item">Load Obj. & Tex.<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo5" class="navigation_item">Sea Waves<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo6" class="navigation_item">Empty Project<i class="fa fa-cubes navigation_icon"></i></li>
+        <li id="demo7" class="navigation_item">Aufgabe 3.1 Lsg<i class="fa fa-cubes navigation_icon"></i></li>
+        </li>
+    </ul>
+</div>
+
+<div id="src_sidebar" class="sidebar_submenu hide_menu noSelect">
+    <a id="return_from_src" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">Resources</h2>
+
+    <ul id="navigation_src" class="navigation_selection">
+        <li id="obj" class="navigation_item">Objects<i class="fa fa-link navigation_icon"></i></li>
+        <li id="tex" class="navigation_item">Textures<i class="fa fa-link navigation_icon"></i></li>
+    </ul>
+</div>
+
+<div id="src_object_sidebar" class="sidebar_submenu hide_menu">
+    <a id="return_from_src_object" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">Object names</h2>
+    <h2 class="path_title">Path: 'src/object/[objectName].obj'</h2>
+
+    <!--TODO: add object names and store them in the folder with the same name!!-->
+    <ul id="navigation_src_object" class="navigation_selection">
+        <li class="navigation_item_list">teapot.obj</li>
+        <li class="navigation_item_list">bunny.obj</li>
+        <li class="navigation_item_list">webgl-logo.obj</li>
+        <li class="navigation_item_list">car.obj</li>
+        <li class="navigation_item_list">cerberus.obj</li>
+        <li class="navigation_item_list">cube.obj</li>
+        <li class="navigation_item_list">deer.obj</li>
+        <li class="navigation_item_list">dna.obj</li>
+        <li class="navigation_item_list">character.obj</li>
+        <li class="navigation_item_list">globe.obj</li>
+        <li class="navigation_item_list">skeleton.obj</li>
+        <li class="navigation_item_list">mill.obj</li>
+        <li class="navigation_item_list">n64.obj</li>
+        <li class="navigation_item_list">tuna.obj</li>
+        <li class="navigation_item_list">zeppelin.obj</li>
+        <li class="navigation_item_list">vive.obj</li>
+    </ul>
+</div>
+
+<div id="src_texture_sidebar" class="sidebar_submenu hide_menu">
+    <a id="return_from_src_texture" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">Texture names</h2>
+    <h2 class="path_title">Path: 'src/texture/[textureName].(jpg|png|gif|bmp)'</h2>
+
+
+    <ul id="navigation_src_texture" class="navigation_selection">
+        <li class="navigation_item_list">amiga.jpg</li>
+        <li class="navigation_item_list">brick_bump.jpg</li>
+        <li class="navigation_item_list">brick_diffuse.jpg</li>
+        <li class="navigation_item_list">brick_rough.jpg</li>
+        <li class="navigation_item_list">bumb.jpg</li>
+        <li class="navigation_item_list">cerberus.jpg</li>
+        <li class="navigation_item_list">circle-tex.jpg</li>
+        <li class="navigation_item_list">cloud.jpg</li>
+        <li class="navigation_item_list">crate.jpg</li>
+        <li class="navigation_item_list">disturb.jpg</li>
+        <li class="navigation_item_list">earth.jpg</li>
+        <li class="navigation_item_list">lavatile.jpg</li>
+        <li class="navigation_item_list">metal.jpg</li>
+        <li class="navigation_item_list">perlin.png</li>
+        <li class="navigation_item_list">transition1.png</li>
+        <li class="navigation_item_list">transition2.png</li>
+        <li class="navigation_item_list">transition3.png</li>
+        <li class="navigation_item_list">transition4.png</li>
+        <li class="navigation_item_list">transition5.png</li>
+        <li class="navigation_item_list">transition6.png</li>
+        <li class="navigation_item_list">UV_Grid_Sm.jpg</li>
+        <li class="navigation_item_list">water.jpg</li>
+        <li class="navigation_item_list">water_normals.jpg</li>
+        <li class="navigation_item_list">vive.png</li>
+    </ul>
+</div>
+
+
+<div id="docu_sidebar" class="sidebar_submenu hide_menu noSelect">
+    <a id="return_from_docu" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">Documentation</h2>
+    <ul id="navigation_docu" class="navigation_selection">
+        <a target="_blank" href="https://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf"
+           style="text-decoration:none">
+            <li id="WebGLandGLSL" class="navigation_item">WebGL & GLSL<i class="fa fa-link navigation_icon"></i>
+            </li>
+        </a>
+
+        <a target="_blank" href="./JsDoc/webgl-editor-utils/global.html" style="text-decoration:none">
+            <li id="editorFunctions" class="navigation_item">WebGL-Editor<i class="fa fa-link navigation_icon"></i>
+            </li>
+        </a>
+
+        <a target="_blank" href="./JsDoc/webgl-obj-loader/module-OBJ.html" style="text-decoration:none">
+            <li id="objLoader" class="navigation_item">Object Loader<i class="fa fa-link navigation_icon"></i>
+            </li>
+        </a>
+
+        <a target="_blank" href="./JsDoc/webgl-texture-loader/module-TEX.html" style="text-decoration:none">
+            <li id="texLoader" class="navigation_item">Texture Loader <i class="fa fa-link navigation_icon"></i>
+            </li>
+        </a>
+        <!-- <a target="_blank" href="./JsDoc/controller/Controller.html"  style="text-decoration:none">
+             <li id="controller" class="navigation_item">Controller<i class="fa fa-link navigation_icon"></i>
+             </li>
+         </a>-->
+        <a target="_blank" href="http://glmatrix.net/docs/module-glMatrix.html" style="text-decoration:none">
+            <li id="glMatrix" class="navigation_item">GlMatrix<i class="fa fa-link navigation_icon"></i>
+            </li>
+        </a>
+    </ul>
+</div>
+
+
+<div id="about_sidebar" class="sidebar_submenu hide_menu noSelect">
+    <a id="return_from_about" class="returnBtn">
+        <div class="fa fa-arrow-left fa-pull-right"></div>
+    </a>
+    <h2 class="tab_title noSelect">About</h2>
+    <p class="about aboutText">
+        A fully client-based editor to practice the use of WebGL and GLSL ES by implementing your own WebGL-Application and
+        it's corresponding Vertex- and Fragment Shader.
+        <br> <br>
+        All matrix and vector calculations make use of the library GlMatrix. Additionally, you are able to download
+        objects and textures.
+        For further information and examples take a look into the documentation and WebGL-Demos.
+        <br><br>
+        Supported browsers are Chrome, Firefox and Safari on desktop computers and tablets.
+        <br><br><br><br>
+        <img src="css/UPB_LOGO_KOMP_WEISS_D_2015.png" class="upb_logo">
+
+        This editor was developed by Daniel Braun as part of the bachelor thesis 'WebGL-Editor' at the University of
+        Paderborn.
+    </p>
+</div>
+
+
+<div class="wrapper">
+    <div id="bodyWrapper">
+        <div id="leftBody">
+            <div id="nav_pipe_wrapper">
+                <div id="navBar" class="noSelect">
+                    <i id="toggle_menu" title="Open menu" class="fa fa-navicon navBarItemStyles"></i>
+                    <a id="upload_program" title="Upload program state" class="fa fa-upload navBarItemStyles"></a>
+                    <input id="file-input" type="file" name="name" style="display: none;"/>
+                    <a id="save_program" title="Download program state" class="fa fa-download navBarItemStyles"></a>
+                </div>
+                <div id="pipelineBody">
+                    <div id="leftSide_pipeline">
+                        <div id="upperPipeline">
+
+                            <button id="vertices" data-reveal-id="modalVertices" data-animation="fade"
+                                    class="button buttonGreen">
+                                Vertices
+                            </button>
+
+                            <button id="vertShad" data-reveal-id="modalVertShad" data-animation="fade"
+                                    class="button buttonGreen">
+                                Vertex Shader
+                            </button>
+
+                            <button id="primProcAssem" data-reveal-id="modalPrimProcAssem" data-animation="fade"
+                                    class="button buttonBlue">
+                                Primitive Processing & Assembly
+                            </button>
+
+                            <button id="rasterizer" data-reveal-id="modalRasterizer" data-animation="fade"
+                                    class="button buttonBlue">
+                                Rasterizer
+                            </button>
+
+                        </div>
+
+                        <div id="bottomPipeline">
+                            <button id="texture" data-reveal-id="modalTexture" data-animation="fade"
+                                    class="button buttonGreen">
+                                Texture
+                            </button>
+
+                            <button id="texMemory" data-reveal-id="modalTexMemory" data-animation="fade"
+                                    class="button buttonBlue">
+                                Texture Memory
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="rightSide_pipeline">
+                        <div id="top">
+
+                        </div>
+                        <div id="inner_rightSide_pipeline">
+                            <button id="fragShad" data-reveal-id="modalFragShad" data-animation="fade"
+                                    class="button buttonGreen">
+                                Fragment Shader
+                            </button>
+
+                            <button id="frameBuffer" data-reveal-id="modalFrameBuffer" data-animation="fade"
+                                    class="button buttonBlue">
+                                Frame Buffer
+                            </button>
+                        </div>
+                        <div id="bottom">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="editorMenuBody">
+                <ul class="navigation_editor_selection_left noSelect">
+                    <li id="webGL" title="WebGL" class="navigation_editor_item selectTab">WebGL</li>
+                    <li id="vs" title="Vertex shader" class="navigation_editor_item">VS</li>
+                    <li id="fs" title="Fragment shader" class="navigation_editor_item">FS</li>
+                </ul>
+                <ul class="navigation_editor_selection_right">
+                    <li id="cancelRun" title="Stop" class="navigation_editor_item">
+                        <div class="fa fa-stop"></div>
+                    </li>
+                    <li id="pauseRun" title="Pause" class="navigation_editor_item">
+                        <div class="fa fa-pause"></div>
+                    </li>
+                    <li id="startRun" title="Run" class="navigation_editor_item">
+                        <div class="fa fa-play"></div>
+                    </li>
+                </ul>
+            </div>
+            <div id="editorBody">
+                <pre id="editorVS" class="editor hide_editor"></pre>
+                <pre id="editorFS" class="editor hide_editor"></pre>
+                <pre id="editorWebGL" class="editor"></pre>
+            </div>
+        </div>
+        <div id="rightBody">
+            <div id="canvasBody">
+                <canvas oncontextmenu="return false;" id="gl-canvas" class="canvas" height="0" width="0">
+                    <pre class="warningText">Your browser doesn't support HTML5 canvas element!<br>Please update your browser</pre>
+                </canvas>
+                <p id="countFPS" class="canvasCountFPS"></p>
+                <menu id="canvasControls">
+                    <!--TODO: delete the onclick and put it into menu with jquery and check if applikation is running before going fullscreen-->
+                    <i id="fullscreenBtn" class="canvasFullscreenBtn" title="Fullscreen"> <i
+                            class="fa fa-arrows-alt"></i></i>
+                </menu>
+            </div>
+            <div id="errorBody">
+                <div id="errorLogContainer" class="errorLog"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalVertices" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Vertices</h1><br>
+    <p>WebGL can draw three different standard types of primitives - <strong>POINTS</strong>, <strong>LINES</strong> and
+        <strong>TRIANGLES</strong> - whereas POINTS use 1 vertex,
+        LINES 2 vertices and TRIANGLES 3 vertices.
+        <br>
+        <br>
+        In your WebGL-Application you provide a set of vertices which make up your object you want to draw. Those
+        vertices have to be uploaded to your GPU at first and subsequently run through your vertex shader when executing
+        the application.
+        When all information has been uploaded to your GPU the functions <strong>drawArrays</strong> or <strong>drawElements</strong>
+        will start the execution of the rendering pipeline.
+    </p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalVertShad" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Vertex Shader</h1><br>
+    <p>The vertex shader is a function you write in <strong>GLSL</strong>. It gets called once for each vertex. You do
+        some math and set
+        the special variable <strong>gl_Position</strong> with a clipspace value for the current vertex. The GPU takes
+        that value and stores it internally.
+        <br>
+        <br>
+        <strong>Note: </strong>Do as much as you can in the vertex shader, rather than in the fragment shader. Because,
+        per rendering pass,
+        fragment shaders run many more times than vertex shaders, any calculation that can be done on the vertices and
+        then just interpolated among fragments is a performance improvement (this interpolation is done "automagically" for
+        you, through the fixed functionality rasterization phase of the rendering pipeline).
+
+    </p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalPrimProcAssem" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Primitive Processing & Assembly</h1><br>
+    <p>
+        The WebGL pipeline needs to assemble the shaded vertices into individual geometric primitives such as triangles,
+        lines or points.
+        Then for each primitive, WebGL needs to decide whether the primitive is within the 3D region that is visible on
+        the screen or not. Each primitive that is located outside the 3D region will be discarded and not passed further
+        to
+        the rasterizer. Each primitive that is partially inside the 3D region will be clipped to the visible part and
+        passed to the rasterizer.
+        <br>
+        <br>
+        <strong>Note:</strong> The visible 3D region is specified by a matrix, usually known as the <strong>viewing
+        matrix</strong>, which has to
+        be set within your application and given to you vertex shader. Common viewing matrices are
+        <strong>perspective</strong>, <strong>frustum</strong> and <strong>ortho</strong>.
+
+        <br>
+        <br>
+
+        Assuming you're drawing <strong>TRIANGLES</strong>, every time the vertex shader generates 3 vertices the
+        primitive
+        processing &
+        assembly uses them to make a triangle. It figures out which pixels the 3 points of the triangle correspond to.
+        Each visible triangle will then be passed to the rasterizer.</p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalRasterizer" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Rasterizer</h1><br>
+    <p> The rasterizer convert the primitives to fragments. For each fragment it
+        will call your fragment shader asking you what color to make that fragment. You can think of a fragment as a
+        pixel that can finally be drawn on the screen.
+
+    </p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalTexture" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Texture</h1><br>
+    <p> An important operation in computer graphics is applying a texture to a surface. You can think of texturing as a
+        process that "glues" images onto geometrical objects. These images are called textures.
+
+        In your WebGL-Application you can load a texture which afterwards make up the color of the object you want to
+        draw. The
+        texture has to be stored in a <strong>texture buffer</strong> and uploaded to your GPU.
+        <br>
+        <br>
+        <strong>Note:</strong> In order to apply textures onto objects we need to pass in texture coordinates for each
+        vertex. The most common
+        way is to just
+        pass them straight through to the fragment shader. Texture coordinates tell WebGL the location of the pixels
+        within the texture you want to be applied onto a specific vertex.
+        <br>
+        <br>
+        All textures will be normalized to a
+        2-dimensional [0,1] picture area, therefore each pixel of a texture can be accessed within the range of [0,1]
+        for each axis.
+    </p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalTexMemory" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Texture Memory</h1><br>
+    <p>Your textures need to be stored so that the GPU can access them quickly and efficiently. Usually the GPU has a
+        special texture memory to store the textures.</p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalFragShad" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Fragment Shader</h1><br>
+    <p>The fragment shader is a function you write in <strong>GLSL</strong>. It gets called once for each pixel, also
+        known as fragment. Your fragment
+        shader has to set a special variable <strong>gl_FragColor</strong> with the color it wants for each fragment.
+        <br><br>
+        You may calculate and set the color directly in the fragment shader. Moreover you can use a texture in order to
+        define the color for each fragment. Another way would be to declare a varying variable holding a color value for
+        each vertex and pass that data from the vertex shader to the fragment shader.
+        <br>
+        <br>
+        <strong>Note:</strong> WebGL will connect the varying in the vertex shader to the varying of the same name and
+        type in the fragment shader.
+        All data passed through by a varying variable will be interpolated by the rasterizer (this interpolation is done
+        "automagically" for
+        you, through the fixed functionality rasterization phase of the rendering pipeline).
+
+    </p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div id="modalFrameBuffer" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden;">
+    <h1>Frame Buffer</h1><br>
+    <p>Frame buffer is a portion of graphics memory that hold the scene data. This buffer contains details such as width
+        and height of the surface (in pixels), color of each pixel, and depth and stencil buffers. You can think of
+        a frame buffer as a digital copy that is drawn onto your screen, whose pixels are continuously updated by your fragment shader</p>
+    <a class="close-reveal-modal">×</a>
+</div>
+<div class="reveal-modal-bg" style="display: none; cursor: pointer;"></div>
+
+</body>
+
+<script>
+    window.onload = EDITOR.initEditor();
+    window.addEventListener("resize", EDITOR.resizeCanvas);
+    window.onload = EDITOR.resizeCanvas();
+
+    jQuery(document).ready(function () {
+        jQuery('#vertices').connections({to: '#vertShad', 'class': 'btn_line'});
+        jQuery('#vertShad').connections({to: '#primProcAssem', 'class': 'btn_line'});
+        jQuery('#primProcAssem').connections({to: '#rasterizer', 'class': 'btn_line'});
+        jQuery('#fragShad').connections({to: '#rasterizer', 'class': 'btn_line'});
+        jQuery('#texture').connections({to: '#texMemory', 'class': 'btn_line'});
+        jQuery('#fragShad').connections({to: '#texMemory', 'class': 'btn_line'});
+        jQuery('#fragShad').connections({to: '#frameBuffer', 'class': 'btn_line'});
+        window.onload = EDITOR.resizeCanvas();
+    });
+
+
+</script>
+
+</html>

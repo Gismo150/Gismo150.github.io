@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL-Standalone</title>
+    <script type="text/javascript" src="libs/webgl-utils.js"></script>
+    <script type="text/javascript" src="libs/controller.js"></script>
+    <script type="text/javascript" src="libs/webgl-obj-loader.js"></script>
+    <script type="text/javascript" src="libs/webgl-texture-loader.js"></script>
+    <script type="text/javascript" src="libs/orbit.js"></script>
+    <script type="text/javascript" src="libs/gl-matrix.js"></script>
+    <script type="text/javascript" src="libs/hammer-2.0.8-2016.04.23.min.js"></script>
+    <script type="text/javascript" src="libs/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="libs/webgl-debug.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--//TODO: mit string replace placeholder substrings verteilen und replacen mit vs fs und webgl! -->
+</head>
+<body>
+<!--
+<canvas oncontextmenu="return false;" id="gl-canvas" class="canvas" height="100vh" width="100vw">
+    <pre class="warningText">Your browser doesn't support HTML5 canvas element!<br>Please update your browser</pre>
+</canvas>-->
+
+<div style="position: absolute; top: 60px; width: 100%">
+    <!-- Couldn't figure out how to get this effect without using
+         the "center" tag -->
+    <center>
+        <canvas id="gl-canvas" oncontextmenu="return false;" style="width: 800px; height: 600px;" class="centeredcanvas"
+                width="800" height="600">
+        </canvas>
+    </center>
+</div>
+<script id="vertex-shader" type="x-shader/x-vertex">
+    //VSPLACEHOLDER
+
+
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+    //FSPLACEHOLDER
+
+
+
+</script>
+
+<script>
+
+    /*-----------------------------------STANDALONE HELPER FUNCTIONS & VARIABLES------------------------------------*/
+    /**
+     * @description Access to the WebGLRenderingContext interface.
+     * @readonly
+     * @type {WebGLRenderingContext}
+     */
+    var gl;
+    /**
+     * @description The HTMLCanvasElement.
+     * @readonly
+     * @type {HTMLCanvasElement}
+     */
+    var canvas;
+    /**
+     * @description Indicates if an object is currently loading or not.
+     * @readonly
+     * @type {boolean} true when loading, otherwise false.
+     */
+    var _OBJisLoading = false;
+    /**
+     * @description Indicates if an texture is currently loading or not.
+     * @readonly
+     * @type {boolean} true when loading, otherwise false.
+     */
+    var _TEXisLoading = false;
+    canvas = document.getElementById("gl-canvas");
+    //initialising controller object in order to detect mouse, touch and keyboard input
+    controller = new Controller(canvas);
+
+    //Get the rendering context...see WebGLUtils.js for more
+    var ctx = WebGLUtils.setupWebGL(canvas, null);
+    //wrapping the rendering context into a debugger in order to detect WebGL errors
+    gl = WebGLDebugUtils.makeDebugContext(ctx);
+    gl = WebGLDebugUtils.makeDebugContext(gl, throwOnGLError);
+    //gl = WebGLDebugUtils.makeDebugContext(gl, undefined, logGLCall);
+    gl = WebGLDebugUtils.makeDebugContext(gl, undefined, validateNoneOfTheArgsAreUndefined);
+    //enable keyboard input
+    canvas.contentEditable = true;
+    if (!gl) {
+        console.log("WebGL context isn't available");
+    } else {
+        console.log("WebGL context initialized successfully");
+    }
+    gl.clearColor(0.3, 0.3, 0.3, 1);
+
+    /**
+     * @description  function prints the WebGL-Error message onto the browsers console
+     */
+    function throwOnGLError(err, funcName, args) {
+        var errorMsg;
+        var error = WebGLDebugUtils.glEnumToString(err);
+        switch (error) {
+            case "gl.INVALID_OPERATION":
+                errorMsg = "INVALID_OPERATION: The specified command is not allowed for the current state";
+                break;
+            case "gl.INVALID_ENUM":
+                errorMsg = "INVALID_ENUM: An unacceptable value has been specified for an enumerated argument";
+                break;
+            case "gl.INVALID_VALUE":
+                errorMsg = "INVALID_VALUE: A numeric argument is out of range";
+                break;
+            case "gl.INVALID_FRAMEBUFFER_OPERATION":
+                errorMsg = "INVALID_FRAMEBUFFER_OPERATION: The currently bound framebuffer is not framebuffer complete when trying to render to or to read from it";
+                break;
+            case "gl.OUT_OF_MEMORY":
+                errorMsg = "OUT_OF_MEMORY: Not enough memory is left to execute the command";
+                break;
+            case "gl.CONTEXT_LOST_WEBGL":
+                errorMsg = "CONTEXT_LOST_WEBGL: WebGL context is lost";
+                break;
+        }
+        console.log(errorMsg);
+    }
+    function validateNoneOfTheArgsAreUndefined(functionName, args) {
+        for (var ii = 0; ii < args.length; ++ii) {
+            if (args[ii] === undefined) {
+                console.log("Undefined argument passed to gl." + functionName + "(" +
+                    WebGLDebugUtils.glFunctionArgsToString(functionName, args) + ")");
+            }
+        }
+    }
+
+    //You should let your WebGL-rendering callback be a requestAnimationFrame callback: if you do so,
+    // the browser will take care of the complex details of animation scheduling for you.
+    function renderLoop() {
+        //set the viewport
+        gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+        if (!_TEXisLoading && !_OBJisLoading) {
+            render();
+        }
+        requestAnimationFrame(renderLoop);
+    };
+
+    /**
+     * Takes in the WebGLRenderingContext and starts to compile, attach and link the Vertex- and Fragment Shader.
+     * @param {WebGLRenderingContext} gl is the WebGLRenderingContext instance
+     * @return {WebGLProgram} A WebGLProgram object that is a combination of two compiled WebGLShaders consisting of a vertex shader and
+     * a fragment shader (both written in GLSL). These are then linked into a usable program.
+     */
+    function initShaders(gl) {
+        var vertShdr;
+        var fragShdr;
+        var failed = 0;
+        var vertElem = document.getElementById("vertex-shader");
+        if (!vertElem) {
+            alert("Unable to load vertex shader");
+            return -1;
+        }
+        var fragElem = document.getElementById("fragment-shader");
+        if (!fragElem) {
+            alert("Unable to load fragment shader");
+            return -1;
+        }
+        vertShdr = gl.createShader(gl.VERTEX_SHADER);
+        //TODO: shader source anpassen
+        gl.shaderSource(vertShdr, vertElem.text);
+        gl.compileShader(vertShdr);
+        if (!gl.getShaderParameter(vertShdr, gl.COMPILE_STATUS)) {
+            console.log("Vertex shader failed to compile:");
+            console.log(gl.getShaderInfoLog(vertShdr));
+            failed = -1;
+        }
+        fragShdr = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragShdr, fragElem.text);
+        gl.compileShader(fragShdr);
+        if (!gl.getShaderParameter(fragShdr, gl.COMPILE_STATUS)) {
+            console.log("Fragment shader failed to compile:");
+            console.log(gl.getShaderInfoLog(fragShdr));
+            failed = -1;
+        }
+        if (failed !== -1) {
+            var program = gl.createProgram();
+            gl.attachShader(program, vertShdr);
+            gl.attachShader(program, fragShdr);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+                console.log("Shader program failed to link. ");
+                console.log(gl.getProgramInfoLog(program));
+                return -1;
+            }
+            console.log("Shaders compiled successfully");
+        }
+        return program;
+    }
+
+    /**
+     * @description
+     * Logging function which prints the value of any given Type to the status-window.
+     *
+     * @param {*} message The message to be displayed
+     */
+    function writeLog(message) {
+        var time = new Date().toLocaleTimeString();
+        var msg = time + ":  " + message;
+        console.log(msg);
+    }
+    /**
+     * @description
+     * Takes in a javascript array and copies it into a Float32Array.
+     *
+     * @param {Array} m An array in javascript representation
+     * @return {Float32Array} The newly created Float32Array
+     */
+    function flatten(m) {
+        var result = new Float32Array(m[0].length * m.length);
+        var i, j;
+        for (i = 0; i < m.length; i++) {
+            for (j = 0; j < m[0].length; j++) {
+                result[m[0].length * i + j] = m[i][j];
+            }
+        }
+        return result;
+    }
+
+
+    /**
+     * @description
+     * Generates a mat4 viewing matrix and connects it with the control of an arcball camera, by using the Object literals of the controller Object.
+     *
+     *  <pre>
+     * Note: In order to see the changes when interacting with the canvas, the provided matrix has to be send to the vertex shader (e.g. as an uniform)
+     * in the render-loop.
+     * </pre>
+     *
+     * @param {mat4} matrix Placeholder matrix in which the viewing matrix will be stored
+     * @param {vec3} eye The starting camera position
+     * @param {vec3} at The starting focus point
+     * @param {vec3} up The starting roll of the camera
+     */
+    function lookAtArcballCamera(matrix, eye, at, up) {
+        var camera = createArcballCamera(eye, at, up);
+        camera.view(matrix);
+        controller.onchange = function (interactionType) {
+            //TODO: switch case of interactionType for performance improvement?
+            camera.pan([-controller.deltaXTrans / 5, -controller.deltaYTrans / 5]);
+            camera.zoom(controller.deltaZTrans * 10);
+            camera.rotate([-controller.deltaXRot / 2, -controller.deltaYRot / 2], [0, 0]);
+            camera.view(matrix);
+        };
+    }
+
+
+    /**
+     * @description
+     * Takes in a mat4 model matrix and manipulates it by using the Object literals of the controller Object.
+     *
+     * <pre>
+     * Note: In order to see the changes when interacting with the canvas, the provided matrix has to be send to the vertex shader (e.g. as an uniform)
+     * in the render-loop.
+     * </pre>
+
+     *
+     * @param {mat4} matrix Placeholder matrix in which the model matrix will be stored
+     */
+    function modelInteraction(matrix) {
+        var xRotMatrix = mat4.create();
+        var yRotMatrix = mat4.create();
+        var translationMatrix = mat4.create();
+        var scaleMatrix = mat4.create();
+
+        controller.onchange = function (interactionType) {
+            //ROTATE
+            mat4.fromYRotation(yRotMatrix, -controller.yRot);
+            mat4.fromXRotation(xRotMatrix, -controller.xRot);
+            mat4.multiply(matrix, xRotMatrix, yRotMatrix);
+
+            //TRANSLATE
+            mat4.fromTranslation(translationMatrix, vec3.fromValues(-controller.xTrans, controller.yTrans, 0));
+            mat4.multiply(matrix, translationMatrix, matrix);
+
+            //SCALE
+            mat4.fromScaling(scaleMatrix, vec3.fromValues(controller.objectScale, controller.objectScale, controller.objectScale));
+            mat4.multiply(matrix, scaleMatrix, matrix);
+
+        };
+    }
+
+    function resizeCanvas() {
+        var canvas = document.getElementById("gl-canvas");
+        // Lookup the size the browser is displaying the canvas.
+        var rect = canvas.getBoundingClientRect();
+        var displayWidth = rect.width;
+        var displayHeight = rect.height;
+        // Make the canvas the same size
+        canvas.width = displayWidth;
+        canvas.height = displayHeight;
+    }
+
+
+    /*--------------------------------------------WebGL CODE------------------------------------------*/
+
+    //WEBGLPLACEHOLDER
+
+
+    renderLoop();
+</script>
+
+<script>
+    window.addEventListener("resize", resizeCanvas);
+    window.onload = resizeCanvas();
+</script>
+
+
+</body>
+</html>

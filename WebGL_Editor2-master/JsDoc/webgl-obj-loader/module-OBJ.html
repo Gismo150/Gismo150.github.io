@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: OBJ</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: OBJ</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="module-OBJ.OBJ.Mesh.html">OBJ.Mesh</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".OBJ.deleteMeshBuffers"><span class="type-signature">(static) </span>OBJ.deleteMeshBuffers<span class="signature">(gl, mesh)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in the WebGL context and a Mesh. Deletes the mesh's buffers,which you would do when deleting an object from a scene so that you don't leak video memory.Excessive buffer creation and deletion leads to video memory fragmentation. Beware.The deleted texture attributes are:<pre>Attribute              | DescriptionnormalBuffer           | contains the Vertex NormalsnormalBuffer.itemSize  | set to 3 itemsnormalBuffer.numItems  | the total number of vertex normals___________________________________________________________________________________________________textureBuffer          | contains the Texture CoordinatestextureBuffer.itemSize | set to 2 itemstextureBuffer.numItems | the number of texture coordinates___________________________________________________________________________________________________vertexBuffer           | contains the  Vertex Position Coordinates (does not include w)vertexBuffer.itemSize  | set to 3 itemsvertexBuffer.numItems  | the total number of vertices___________________________________________________________________________________________________indexBuffer            | contains the indices of the facesindexBuffer.itemSize   | is set to 1indexBuffer.numItems   | the total number of indices</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the 'canvas.getContext('webgl')' context instance</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mesh</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Mesh</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a single 'OBJ.Mesh' instance</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-obj-loader.js.html">webgl-obj-loader.js</a>, <a href="webgl-obj-loader.js.html#line514">line 514</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".OBJ.downloadMeshes"><span class="type-signature">(static) </span>OBJ.downloadMeshes<span class="signature">(nameAndURLs, completionCallback, meshes)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in an object of 'mesh_name': 'src/object/[objectName].obj' pairs and a callbackfunction. Each OBJ file will be ajaxed in and automatically converted toan OBJ.Mesh. When all files have successfully downloaded the callbackfunction provided will be called and passed in an object containingthe newly created meshes.<pre>Note: Cross Origin Resource Sharing (CORS) is NOT enabled for loading objects. You can not download obj files from other domains.Note: In order to use this function as a way to download objects, a webserver of some sort must be used.The newly created Javascript-Arrays for each loaded Object are:<pre>Javascript-Array       | DescriptionvertexNormals          | contains the Vertex Normals___________________________________________________________________________________________________textures               | contains the Texture Coordinates___________________________________________________________________________________________________vertices               | contains the Vertex Position Coordinates (does not include w)___________________________________________________________________________________________________indices                | contains the indices of the faces</pre>The URL path for loading objects provided by the Editor always begins with: 'src/object/[objectName].obj'. A list of all available objects withinthe editor can be seen in the menu under sources -> object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nameAndURLs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object where the key is the name of the mesh and the value is the url to that mesh's OBJ file</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>completionCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">should contain a function that will take one parameter: an object array where the keys will be the unique object name and the value will be a Mesh object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>meshes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">In case other meshes are loaded separately or if a previously declared variable is desired to be used, pass in a (possibly empty) json object of the pattern: { '< mesh_name >': OBJ.Mesh }</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-obj-loader.js.html">webgl-obj-loader.js</a>, <a href="webgl-obj-loader.js.html#line356">line 356</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".OBJ.initMeshBuffers"><span class="type-signature">(static) </span>OBJ.initMeshBuffers<span class="signature">(gl, mesh)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in the WebGL context and a Mesh, then creates and appends the buffersto the mesh object as attributes.The newly created mesh attributes are:<pre>Attribute              | DescriptionnormalBuffer           | contains the Vertex NormalsnormalBuffer.itemSize  | set to 3 itemsnormalBuffer.numItems  | the total number of vertex normals___________________________________________________________________________________________________textureBuffer          | contains the Texture CoordinatestextureBuffer.itemSize | set to 2 itemstextureBuffer.numItems | the number of texture coordinates___________________________________________________________________________________________________vertexBuffer           | contains the Vertex Position Coordinates (does not include w)vertexBuffer.itemSize  | set to 3 itemsvertexBuffer.numItems  | the total number of vertices___________________________________________________________________________________________________indexBuffer            | contains the indices of the facesindexBuffer.itemSize   | is set to 1indexBuffer.numItems   | the total number of indices</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the 'canvas.getContext('webgl')' context instance</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mesh</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Mesh</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">a single 'OBJ.Mesh' instance</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-obj-loader.js.html">webgl-obj-loader.js</a>, <a href="webgl-obj-loader.js.html#line470">line 470</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-OBJ.html">OBJ</a></li></ul><h3>Classes</h3><ul><li><a href="module-OBJ.OBJ.Mesh.html">OBJ.Mesh</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Sep 19 2017 23:20:21 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

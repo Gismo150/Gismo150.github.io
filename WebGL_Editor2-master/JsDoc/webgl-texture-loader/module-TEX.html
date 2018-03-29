@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: TEX</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: TEX</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="module-TEX.TEX.Texture.html">TEX.Texture</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".TEX.deleteTextureBuffer"><span class="type-signature">(static) </span>TEX.deleteTextureBuffer<span class="signature">(gl, texture)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in the WebGL context and a Texture. Deletes the texture buffer,which you would do when deleting an object from a scene so that you don't leak video memory.The deleted texture attribute is:<pre>Attribute    | DescriptiontextureBuffer| A WebGLTexture object to which the image is bound to.</pre>Note: You are able to use TEX.initTextureBuffer again in order recreate a texture bufferExcessive buffer creation and deletion leads to video memory fragmentation. Beware.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The WebGLRenderingContext</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>texture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Texture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A single 'TEX.Texture' instance</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-texture-loader.js.html">webgl-texture-loader.js</a>, <a href="webgl-texture-loader.js.html#line237">line 237</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".TEX.downloadTextures"><span class="type-signature">(static) </span>TEX.downloadTextures<span class="signature">(nameAndURLs, completionCallback, textures)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in an Javascript object of ['texture_name': '/url/to/TEX/file'] pairs and a callbackfunction. Each image file will be ajaxed in and automatically converted toan TEX.Texture Object. When all images have been successfully downloaded the callbackfunction provided will be called and passed in an Javascript object containingthe newly created TEX.texture Objects of ['texture_name': TEX.Texture] pairs.<pre> Note: Cross Origin Resource Sharing (CORS) is enabled. You may request images from other domains, iff the requested domain allows CORS. That is up to the server. Github pages give permission, flickr.com gives permission, imgur.com gives permssion, but most websites do not.Note: In order to use this function as a way to download textures, a webserver of some sort must be used.</pre>The URL path for loading images provided by the Editor always begins with: 'src/texture/[imageName].(jpg|png|gif|bmp)'. A list of all available images withinthe editor can be seen in the menu under sources -> texture.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nameAndURLs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object where the key is the name of the texture and the value is the url to that image file</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>completionCallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Should contain a function that will take one parameter: an object array where the keys will be the unique object name and the value will be a Texture object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>textures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">In case other textures are loaded separately or if a previously declared variable is desired to be used, pass in a (possibly empty) json object of the pattern: { '< tex_name >': TEX.Texture }</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-texture-loader.js.html">webgl-texture-loader.js</a>, <a href="webgl-texture-loader.js.html#line124">line 124</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".TEX.initTextureBuffer"><span class="type-signature">(static) </span>TEX.initTextureBuffer<span class="signature">(gl, texture)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Takes in the WebGL context and a TEX Object, then creates and appends the texture bufferto the texture object as a attribute.The newly created texture attribute is:<pre>Attribute    | DescriptiontextureBuffer| A WebGLTexture object to which the image is bound to.</pre>Access the WebGLTexture object via texture.textureBuffer
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The WebGLRenderingContext</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>texture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Texture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A single 'TEX.Texture' instance</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="webgl-texture-loader.js.html">webgl-texture-loader.js</a>, <a href="webgl-texture-loader.js.html#line208">line 208</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-TEX.html">TEX</a></li></ul><h3>Classes</h3><ul><li><a href="module-TEX.TEX.Texture.html">TEX.Texture</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Tue Sep 19 2017 23:20:38 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
