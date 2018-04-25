@@ -114,7 +114,9 @@
                 <div class="service-item">
                     <i class="service-icon fa fa-camera fa-3x"></i>
                     <h3>Landscapes</h3>
-                    <p></p>
+                    <p>Ad has dicat ridens consetetur, eos eu option persius. Mollis cotidieque conclusionemque per
+                        id,
+                        ne nam alienum liberavisse.</p>
                 </div>
             </div>
 
@@ -338,8 +340,7 @@
         natureCount = 39,
         portraitCount = 0;
     let backgrounds = [];
-    //TODO: natureIndex starting by 3 for now!
-    for (let natureIndex = 3; natureIndex <= natureCount; natureIndex++) {
+    for (let natureIndex = 1; natureIndex <= natureCount; natureIndex++) {
         backgrounds.push({src: 'Portfolio/nature/nature%20(' + natureIndex + ').jpg'});
     }
     for (let animalIndex = 1; animalIndex <= animalCount; animalIndex++) {
@@ -355,22 +356,7 @@
         backgrounds.push({src: 'Portfolio/portrait/portrait%20(' + portraitIndex + ').jpg'});
     }
 
-    /**
-     * Shuffles array in place.
-     * @param {Array} a items An array containing the items.
-     */
-    function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-    }
     shuffle(backgrounds);
-
     $(function () {
         $('body').vegas({
             overlay: true,
@@ -383,13 +369,6 @@
             slides: backgrounds
         });
     });
-    /* $.vegas('slideshow', {
-         delay: 10000,
-         backgrounds
-     })('overlay', {
-         src: './img/overlay.png'
-     });*/
-
 </script>
 <!-- /Slideshow Background -->
 
