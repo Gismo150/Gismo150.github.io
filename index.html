@@ -15,6 +15,8 @@
     <link href="css/twentytwenty.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- Vegas Slideshow CSS -->
+    <link  rel="stylesheet" href="/css/vegas.min.css">
 </head>
 <body>
 <!-- Header Area -->
@@ -142,463 +144,361 @@
     </div>
 
 </div>
-    <!-- /Services -->
+<!-- /Services -->
 
-    <!-- Portfolio -->
-    <div id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="row push50">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="hrOnWhite">
-                    <h3>
-                        <span class="filter label label-default" data-filter="all">ALL</span>
-                        <span class="filter label label-default" data-filter="bw">B&amp;W</span>
-                        <span class="filter label label-default" data-filter="nature">Nature</span>
-                        <span class="filter label label-default" data-filter="portraits">Portraits</span>
-                    </h3>
-                    <hr>
-                </div>
+<!-- Portfolio -->
+<div id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="row push50">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2>Portfolio</h2>
+                <hr class="hrOnWhite">
+                <h3>
+                    <span class="filter label label-default" data-filter="all">ALL</span>
+                    <span class="filter label label-default" data-filter="bw">B&amp;W</span>
+                    <span class="filter label label-default" data-filter="nature">Nature</span>
+                    <span class="filter label label-default" data-filter="portraits">Portraits</span>
+                    <span class="filter label label-default" data-filter="animal">Animals</span>
+                    <span class="filter label label-default" data-filter="general">General</span>
+                </h3>
+                <hr>
             </div>
+        </div>
 
-            <div class="row">
+        <div class="row">
 
-                <div class="gallery">
+            <div class="gallery">
 
-                    <ul id="Grid" class="gcontainer">
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix bw portraits" data-cat="graphics">
-                            <a data-toggle="modal" data-target="#portrait1" class="mix-cover">
-                                <img class="horizontal" src="img/portrait1-sm.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Portrait 1</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix portraits" data-cat="graphics">
-                            <a data-toggle="modal" data-target="#portrait2" class="mix-cover">
-                                <img class="horizontal" src="img/portrait2.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Portrait 2</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix nature" data-cat="nature">
-                            <a data-toggle="modal" data-target="#nature1" class="mix-cover">
-                                <img class="horizontal" src="img/nature1.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Nature 1</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix portraits" data-cat="portraits">
-                            <a data-toggle="modal" data-target="#portrait3" class="mix-cover">
-                                <img class="horizontal" src="img/portrait3.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Portrait 3</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix portraits" data-cat="portraits">
-                            <a data-toggle="modal" data-target="#portrait5" class="mix-cover">
-                                <img class="horizontal" src="img/portrait5.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Portrait 5</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix nature" data-cat="nature">
-                            <a data-toggle="modal" data-target="#nature" class="mix-cover">
-                                <img class="horizontal" src="img/nature.jpg" alt="placeholder">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Nature</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix portraits" data-cat="portrait">
-                            <a data-toggle="modal" data-target="#portrait4" class="mix-cover green">
-                                <img class="vertical" src="img/portrait4.jpg" alt="portrait 4">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Portrait 4</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix bw nature all" data-cat="portrait">
-                            <a data-toggle="modal" data-target="#forest" class="mix-cover green">
-                                <img class="vertical" src="img/forest.jpg" alt="Forest">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Forest</span></span>
-                            </a>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-12 mix bw nature all" data-cat="bw">
-                            <a data-toggle="modal" data-target="#bw1" class="mix-cover green">
-                                <img class="vertical" src="img/bw1.jpg" alt="Black and White">
-                                <span class="overlay"><span class="valign"></span><span
-                                        class="title">Black &amp; White</span></span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Load Photo in Modal -->
-                    <div class="modal fade" id="portrait1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Portrait 1</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="Portrait1" src="img/portrait1.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="portrait2" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Portrait 2</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="Portrait1" src="img/portrait2.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="portrait3" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Portrait 3</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="Portrait1" src="img/portrait3.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="portrait4" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Portrait 4</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="Portrait1" src="img/portrait4.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="portrait5" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Portrait 5</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="Portrait1" src="img/portrait5.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="nature" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Nature</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="nature" src="img/nature.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="nature1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Nature 1</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="nature" src="img/nature1.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                <ul id="Grid" class="gcontainer">
 
 
-                    <div class="modal fade" id="forest" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Forest</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="forest" src="img/forest.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
-
-                    <div class="modal fade" id="bw1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                                    </button>
-                                    <h4 class="modal-title text-center">Black and White</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="thumbnail" alt="forest" src="img/bw1.jpg"/>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                </ul>
 
 
-                    <!-- /Load Photo in Modal -->
+                <!-- Load Photo in Modal -->
+               <div id="modal">
+
+
+                <!-- /Load Photo in Modal -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- /Portfolio -->
-    <!-- workflow -->
-    <!--
-    <div id="workflow" class="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Workflow</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow1' class='twentytwenty-container'>
-                            <img src='workflow/slider1-before.jpg'>
-                            <img src='workflow/slider1-after.jpg'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow4' class="twentytwenty-container">
-                            <img src='workflow/slider4-before.jpg'>
-                            <img src='workflow/slider4-after.jpg'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow3' class="twentytwenty-container">
-                            <img src='workflow/slider3-before.jpg'>
-                            <img src='workflow/slider3-after.jpg'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow2' class="twentytwenty-container">
-                            <img src='workflow/slider2-before.jpg'>
-                            <img src='workflow/slider2-after.jpg'>
-                        </div>
-                    </div>
-                </div>
+</div>
+<!-- /Portfolio -->
+<!-- workflow -->
 
+<div id="workflow" class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2>Workflow</h2>
+                <hr>
             </div>
         </div>
-    </div>-->
-    <!-- /workflow -->
-
-    <!-- Contact -->
-    <div id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2>Contact</h2>
-                    <hr>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow1' class='twentytwenty-container'>
+                        <img src='workflow/nature%20(7)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(7).jpg'>
+                    </div>
                 </div>
-                <div class="col-md-5 col-md-offset-3">
-                    <!-- contact form starts -->
-                    <!--<form action="contact" id="contact-form" class="form-horizontal">-->
-                    <form action="https://formspree.io/gismo155@outlook.com"
-                          method="POST" id="contact-form" class="form-horizontal">
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="name">Name</label>
-                                <div class="col-sm-8">
-                                    <input type="text" placeholder="Your name" class="form-control" name="name"
-                                           id="name">
-                                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow2' class="twentytwenty-container">
+                        <img src='workflow/nature%20(13)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(13).jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow3' class="twentytwenty-container">
+                        <img src='workflow/nature%20(8)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(8).jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow4' class="twentytwenty-container">
+                        <img src='workflow/nature%20(21)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(21).jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow6' class="twentytwenty-container">
+                        <img src='workflow/nature%20(33)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(33).jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow7' class="twentytwenty-container">
+                        <img src='workflow/nature%20(36)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(36).jpg'>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /workflow -->
+
+<!-- Contact -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2>Contact</h2>
+                <hr>
+            </div>
+            <div class="col-md-5 col-md-offset-3">
+                <!-- contact form starts -->
+                <!--<form action="contact" id="contact-form" class="form-horizontal">-->
+                <form action="https://formspree.io/gismo155@outlook.com"
+                      method="POST" id="contact-form" class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="name">Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="Your name" class="form-control" name="name"
+                                       id="name">
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="email">Email address</label>
-                                <div class="col-sm-8">
-                                    <input type="text" placeholder="Your Email address" class="form-control"
-                                           name="email" id="email">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="email">Email address</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="Your Email address" class="form-control"
+                                       name="email" id="email">
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="subject">Subject</label>
-                                <div class="col-sm-8">
-                                    <input type="text" placeholder="Your subject" class="form-control" name="subject"
-                                           id="subject">
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="subject">Subject</label>
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="Your subject" class="form-control" name="subject"
+                                       id="subject">
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="message">Message</label>
-                                <div class="col-sm-8">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="message">Message</label>
+                            <div class="col-sm-8">
                                 <textarea placeholder="Your message" class="form-control" name="message"
                                           id="message" rows="3"></textarea>
-                                </div>
                             </div>
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-success" value="Send">Submit</button>
-                                <button type="reset" class="btn btn-primary">Cancel</button>
-                            </div>
-                        </fieldset>
-                    </form>
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button type="submit" class="btn btn-success" value="Send">Submit</button>
+                            <button type="reset" class="btn btn-primary">Cancel</button>
+                        </div>
+                    </fieldset>
+                </form>
 
-                    <!-- contact form ends -->
-                </div>
+                <!-- contact form ends -->
             </div>
         </div>
     </div>
-    <!-- /Contact -->
+</div>
+<!-- /Contact -->
 
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2>Photography | Coding</h2>
-                    <em>Copyright &copy; Daniel Braun 2018 |
-                        <a id="imprint" class="imprint" target="_blank" href="imprint.html"> Imprint</a></em>
-                </div>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2>Photography | Coding</h2>
+                <em>Copyright &copy; Daniel Braun 2018 |
+                    <a id="imprint" class="imprint" target="_blank" href="imprint.html"> Imprint</a></em>
             </div>
         </div>
-    </footer>
-    <!-- /Footer -->
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-scrolltofixed-min.js"></script>
-    <script src="js/jquery.vegas.js"></script>
-    <script src="js/jquery.mixitup.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jquery.event.move.js"></script>
-    <script src="js/jquery.twentytwenty.js"></script>
+    </div>
+</footer>
+<!-- /Footer -->
+<!-- Bootstrap core JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-scrolltofixed-min.js"></script>
+<script src="js/vegas.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.event.move.js"></script>
+<!--<script src="js/jquery.vegas.js"></script>-->
+<script src="js/jquery.twentytwenty.js"></script>
 
-    <!-- Slideshow Background  -->
-    <script>
-        $.vegas('slideshow', {
-            delay: 5000,
-            backgrounds: [
-                {src: './backgrounds/1.jpg', fade: 2000},
-                {src: './backgrounds/2.jpg', fade: 2000},
-                {src: './backgrounds/3.jpg', fade: 2000},
-                {src: './backgrounds/4.jpg', fade: 2000},
-                {src: './backgrounds/5.jpg', fade: 2000},
-                {src: './backgrounds/6.jpg', fade: 2000},
-                {src: './backgrounds/7.jpg', fade: 2000},
-                {src: './backgrounds/8.jpg', fade: 2000},
-                {src: './backgrounds/9.jpg', fade: 2000},
-                {src: './backgrounds/10.jpg', fade: 2000},
-                {src: './backgrounds/11.jpg', fade: 2000},
-                {src: './backgrounds/12.jpg', fade: 2000},
-                {src: './backgrounds/13.jpg', fade: 2000},
-                {src: './backgrounds/14.jpg', fade: 2000},
-                {src: './backgrounds/15.jpg', fade: 2000},
-                {src: './backgrounds/16.jpg', fade: 2000},
-                {src: './backgrounds/17.jpg', fade: 2000},
-                {src: './backgrounds/18.jpg', fade: 2000},
-                {src: './backgrounds/19.jpg', fade: 2000},
-                {src: './backgrounds/20.jpg', fade: 2000},
-                {src: './backgrounds/21.jpg', fade: 2000},
-                {src: './backgrounds/22.jpg', fade: 2000}
+<!-- Slideshow Background  -->
+<script>
+    //TODO: Keep those counters up to date!!
+    let animalCount = 1,
+        bwCount = 1,
+        generalCount = 6,
+        natureCount = 39,
+        portraitCount = 0;
+    let backgrounds = [];
 
-            ]
-        })('overlay', {
-            src: './img/overlay.png'
+    for(let natureIndex = 1; natureIndex <= natureCount; natureIndex++){
+        backgrounds.push({src: 'Portfolio/nature/nature%20('+natureIndex+').jpg'});
+    }
+    for(let animalIndex = 1; animalIndex <= animalCount; animalIndex++){
+        backgrounds.push({src: 'Portfolio/animal/animal%20('+animalIndex+').jpg'});
+    }
+    for(let bwIndex = 1; bwIndex <= bwCount; bwIndex++){
+        backgrounds.push({src: 'Portfolio/bw/bw%20('+bwIndex+').jpg'});
+    }
+    for(let generalIndex = 1; generalIndex <= generalCount; generalIndex++){
+        backgrounds.push({src: 'Portfolio/general/general%20('+generalIndex+').jpg'});
+    }
+    for(let portraitIndex = 1; portraitIndex <= portraitCount; portraitIndex++){
+        backgrounds.push({src: 'Portfolio/portrait/portrait%20('+portraitIndex+').jpg'});
+    }
+
+    $(function() {
+        $('body').vegas({
+            overlay: true,
+            delay: 10000,
+            slidesToKeep: 1,
+            transition: 'fade2',
+            transitionDuration: 8000,
+            animation: 'random',
+            animationDuration: 10000,
+            slides : backgrounds
         });
+    });
+   /* $.vegas('slideshow', {
+        delay: 10000,
+        backgrounds
+    })('overlay', {
+        src: './img/overlay.png'
+    });*/
 
-    </script>
-    <!-- /Slideshow Background -->
+</script>
+<!-- /Slideshow Background -->
 
-    <!-- Mixitup : Grid -->
-    <script>
-        $(function () {
-            $('#Grid').mixitup();
-        });
-    </script>
-    <!-- /Mixitup : Grid -->
+<!--Create Gallery-->
+<script>
+    //TODO: maybe change to for loops
+    addGalleryItem(["bw"], "#bw1", "Portfolio/bw/bw%20(1).jpg", "Moon", "horizontal", "bw1");
 
-    <!-- Custom JavaScript for Smooth Scrolling - Put in a custom JavaScript file to clean this up -->
-    <script>
-        $(function () {
-            $('a[href*=#]:not([href=#])').click(function () {
-                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-                    || location.hostname == this.hostname) {
+    addGalleryItem(["nature"], "#nature1", "Portfolio/nature/nature%20(1).jpg", "Olsberg", "horizontal", "nature1");
+    addGalleryItem(["nature"], "#nature2", "Portfolio/nature/nature%20(2).jpg", "Olsberg", "horizontal", "nature2");
+    addGalleryItem(["nature", "animal"], "#nature3", "Portfolio/nature/nature%20(3).jpg", "Walkies with the cat", "horizontal", "nature3");
+    addGalleryItem(["nature"], "#nature4", "Portfolio/nature/nature%20(4).jpg", "Sunset", "horizontal", "nature4");
+    addGalleryItem(["nature"], "#nature5", "Portfolio/nature/nature%20(5).jpg", "Path", "horizontal", "nature5");
+    addGalleryItem(["nature"], "#nature6", "Portfolio/nature/nature%20(6).jpg", "Flower", "horizontal", "nature6");
+    addGalleryItem(["nature"], "#nature7", "Portfolio/nature/nature%20(7).jpg", "Wet Branches", "vertical", "nature7");
+    addGalleryItem(["nature"], "#nature8", "Portfolio/nature/nature%20(8).jpg", "Sunset/Flower", "horizontal", "nature8");
+    addGalleryItem(["nature"], "#nature9", "Portfolio/nature/nature%20(9).jpg", "Forest", "horizontal", "nature9");
+    addGalleryItem(["nature"], "#nature10", "Portfolio/nature/nature%20(10).jpg", "White Tree", "horizontal", "nature10");
+    addGalleryItem(["nature"], "#nature11", "Portfolio/nature/nature%20(11).jpg", "Sunset", "horizontal", "nature11");
+    addGalleryItem(["nature"], "#nature12", "Portfolio/nature/nature%20(12).jpg", "Red Flower", "horizontal", "nature12");
+    addGalleryItem(["nature"], "#nature13", "Portfolio/nature/nature%20(13).jpg", "Stonewall", "horizontal", "nature13");
+    addGalleryItem(["nature"], "#nature14", "Portfolio/nature/nature%20(14).jpg", "Pink Flower", "horizontal", "nature14");
+    addGalleryItem(["nature"], "#nature15", "Portfolio/nature/nature%20(15).jpg", "Weser Landkanal", "horizontal", "nature15");
+    addGalleryItem(["nature"], "#nature16", "Portfolio/nature/nature%20(16).jpg", "Roadside", "horizontal", "nature16");
+    addGalleryItem(["nature"], "#nature17", "Portfolio/nature/nature%20(17).jpg", "Flowers", "horizontal", "nature17");
+    addGalleryItem(["nature"], "#nature18", "Portfolio/nature/nature%20(18).jpg", "Old barn", "horizontal", "nature18");
+    addGalleryItem(["nature"], "#nature19", "Portfolio/nature/nature%20(19).jpg", "Clowdy Mountains", "horizontal", "nature19");
+    addGalleryItem(["nature"], "#nature20", "Portfolio/nature/nature%20(20).jpg", "Freezing River", "horizontal", "nature20");
+    addGalleryItem(["nature"], "#nature21", "Portfolio/nature/nature%20(21).jpg", "God Rays", "horizontal", "nature21");
+    addGalleryItem(["nature"], "#nature22", "Portfolio/nature/nature%20(22).jpg", "God Rays", "horizontal", "nature22");
+    addGalleryItem(["nature"], "#nature23", "Portfolio/nature/nature%20(23).jpg", "Forest Path", "horizontal", "nature23");
+    addGalleryItem(["nature"], "#nature24", "Portfolio/nature/nature%20(24).jpg", "Landscape", "horizontal", "nature24");
+    addGalleryItem(["nature"], "#nature25", "Portfolio/nature/nature%20(25).jpg", "Landscape", "horizontal", "nature25");
+    addGalleryItem(["nature"], "#nature26", "Portfolio/nature/nature%20(26).jpg", "River", "horizontal", "nature26");
+    addGalleryItem(["nature"], "#nature27", "Portfolio/nature/nature%20(27).jpg", "Raindrops", "horizontal", "nature27");
+    addGalleryItem(["nature"], "#nature28", "Portfolio/nature/nature%20(28).jpg", "Sunset", "horizontal", "nature28");
+    addGalleryItem(["nature"], "#nature29", "Portfolio/nature/nature%20(29).jpg", "Forest", "horizontal", "nature29");
+    addGalleryItem(["nature"], "#nature30", "Portfolio/nature/nature%20(30).jpg", "Old Branch", "horizontal", "nature30");
+    addGalleryItem(["nature"], "#nature31", "Portfolio/nature/nature%20(31).jpg", "Small river", "horizontal", "nature31");
+    addGalleryItem(["nature"], "#nature32", "Portfolio/nature/nature%20(32).jpg", "Sunset", "horizontal", "nature32");
+    addGalleryItem(["nature"], "#nature33", "Portfolio/nature/nature%20(33).jpg", "Cornfield", "horizontal", "nature33");
+    addGalleryItem(["nature"], "#nature34", "Portfolio/nature/nature%20(34).jpg", "River", "horizontal", "nature34");
+    addGalleryItem(["nature"], "#nature35", "Portfolio/nature/nature%20(35).jpg", "Nature", "horizontal", "nature35");
+    addGalleryItem(["nature"], "#nature36", "Portfolio/nature/nature%20(36).jpg", "Railroads", "horizontal", "nature36");
+    addGalleryItem(["nature"], "#nature37", "Portfolio/nature/nature%20(37).jpg", "Snowy Mountains", "horizontal", "nature37");
+    addGalleryItem(["nature"], "#nature38", "Portfolio/nature/nature%20(38).jpg", "Mountains", "horizontal", "nature38");
+    addGalleryItem(["nature"], "#nature39", "Portfolio/nature/nature%20(39).jpg", "Mountains", "horizontal", "nature39");
 
-                    var target = $(this.hash);
-                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                    if (target.length) {
-                        $('html,body').animate({
-                            scrollTop: target.offset().top
-                        }, 1000);
-                        return false;
-                    }
+
+    addGalleryItem(["animal"], "#animal1", "Portfolio/animals/animal%20(1).jpg", "Persian Cat", "horizontal", "animal1");
+
+
+
+    addGalleryItem(["general"], "#general1", "Portfolio/general/general%20(1).jpg", "Charcoal", "horizontal", "general1");
+    addGalleryItem(["general"], "#general2", "Portfolio/general/general%20(2).jpg", "Glass", "horizontal", "general2");
+    addGalleryItem(["general"], "#general3", "Portfolio/general/general%20(3).jpg", "Rose", "horizontal", "general3");
+    addGalleryItem(["general"], "#general4", "Portfolio/general/general%20(4).jpg", "Long Exposure", "horizontal", "general4");
+    addGalleryItem(["general"], "#general5", "Portfolio/general/general%20(5).jpg", "Long Exposure", "horizontal", "general5");
+    addGalleryItem(["general"], "#general6", "Portfolio/general/general%20(6).jpg", "Table/Food", "horizontal", "general6");
+
+
+</script>
+
+<!-- Mixitup : Grid -->
+<script>
+    $(function () {
+        $('#Grid').mixitup();
+    });
+</script>
+<!-- /Mixitup : Grid -->
+
+<!-- Custom JavaScript for Smooth Scrolling - Put in a custom JavaScript file to clean this up -->
+<script>
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
                 }
-            });
+            }
         });
-    </script>
-    <!-- Navbar -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#nav').scrollToFixed();
-        });
-    </script>
-    <!-- /Navbar-->
+    });
+</script>
+<!-- Navbar -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#nav').scrollToFixed();
+    });
+</script>
+<!-- /Navbar-->
 
-    <!--TwentyTwenty-Setup-->
-    <script type="text/javascript">
-        $(window).load(function () {
-            $(function () {
-                $(".twentytwenty-container").twentytwenty({
-                    default_offset_pct: 0.5, // How much of the before image is visible when the page loads
-                    orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
-                    before_label: 'Before', // Set a custom before label
-                    after_label: 'After', // Set a custom after label
-                    no_overlay: false, //Do not show the overlay with before and after
-                    move_slider_on_hover: false, // Move slider on mouse hover?
-                    move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement.
-                    click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
-                });
+<!--TwentyTwenty-Setup-->
+<script type="text/javascript">
+    $(window).load(function () {
+        $(function () {
+            $(".twentytwenty-container").twentytwenty({
+                default_offset_pct: 0.5, // How much of the before image is visible when the page loads
+                orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
+                before_label: 'Before', // Set a custom before label
+                after_label: 'After', // Set a custom after label
+                no_overlay: false, //Do not show the overlay with before and after
+                move_slider_on_hover: false, // Move slider on mouse hover?
+                move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement.
+                click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
             });
-            $("#workflow1").twentytwenty();
-            $("#workflow2").twentytwenty();
-            $("#workflow3").twentytwenty();
-            $("#workflow4").twentytwenty();
         });
-    </script>
-    <!-- /TwentyTwenty-Setup-->
+        $("#workflow1").twentytwenty();
+        $("#workflow2").twentytwenty();
+        $("#workflow3").twentytwenty();
+        $("#workflow4").twentytwenty();
+    });
+</script>
+<!-- /TwentyTwenty-Setup-->
 
 </body>
 
