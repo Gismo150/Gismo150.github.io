@@ -16,7 +16,7 @@
     <!-- Font Awesome -->
     <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <!-- Vegas Slideshow CSS -->
-    <link  rel="stylesheet" href="/css/vegas.min.css">
+    <link rel="stylesheet" href="/css/vegas.min.css">
 </head>
 <body>
 <!-- Header Area -->
@@ -114,8 +114,7 @@
                 <div class="service-item">
                     <i class="service-icon fa fa-camera fa-3x"></i>
                     <h3>Landscapes</h3>
-                    <p>In mea similique vulputate, ea cum amet malorum dissentiunt. Qui deleniti aliquando cu, ullum
-                        soluta his an, id inani salutatus sit.</p>
+                    <p></p>
                 </div>
             </div>
 
@@ -166,20 +165,12 @@
         </div>
 
         <div class="row">
-
             <div class="gallery">
-
                 <ul id="Grid" class="gcontainer">
-
-
                 </ul>
-
-
                 <!-- Load Photo in Modal -->
-               <div id="modal">
-
-
-                <!-- /Load Photo in Modal -->
+                <div id="modal">
+                    <!-- /Load Photo in Modal -->
                 </div>
             </div>
         </div>
@@ -196,42 +187,42 @@
                 <hr>
             </div>
         </div>
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow3' class="twentytwenty-container">
-                            <img src='workflow/nature%20(8)%20before.jpg'>
-                            <img src='Portfolio/nature/nature%20(8).jpg'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow4' class="twentytwenty-container">
-                            <img src='workflow/nature%20(21)%20before.jpg'>
-                            <img src='Portfolio/nature/nature%20(21).jpg'>
-                        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow3' class="twentytwenty-container">
+                        <img src='workflow/nature%20(8)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(8).jpg'>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow6' class="twentytwenty-container">
-                            <img src='workflow/nature%20(33)%20before.jpg'>
-                            <img src='Portfolio/nature/nature%20(33).jpg'>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="service-item">
-                        <div id='worflow7' class="twentytwenty-container">
-                            <img src='workflow/nature%20(36)%20before.jpg'>
-                            <img src='Portfolio/nature/nature%20(36).jpg'>
-                        </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow4' class="twentytwenty-container">
+                        <img src='workflow/nature%20(21)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(21).jpg'>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow6' class="twentytwenty-container">
+                        <img src='workflow/nature%20(33)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(33).jpg'>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="service-item">
+                    <div id='worflow7' class="twentytwenty-container">
+                        <img src='workflow/nature%20(36)%20before.jpg'>
+                        <img src='Portfolio/nature/nature%20(36).jpg'>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6 text-center">
                 <div class="service-item">
@@ -347,24 +338,24 @@
         natureCount = 39,
         portraitCount = 0;
     let backgrounds = [];
+    //TODO: natureIndex starting by 3 for now!
+    for (let natureIndex = 3; natureIndex <= natureCount; natureIndex++) {
+        backgrounds.push({src: 'Portfolio/nature/nature%20(' + natureIndex + ').jpg'});
+    }
+    for (let animalIndex = 1; animalIndex <= animalCount; animalIndex++) {
+        backgrounds.push({src: 'Portfolio/animal/animal%20(' + animalIndex + ').jpg'});
+    }
+    for (let bwIndex = 1; bwIndex <= bwCount; bwIndex++) {
+        backgrounds.push({src: 'Portfolio/bw/bw%20(' + bwIndex + ').jpg'});
+    }
+    for (let generalIndex = 1; generalIndex <= generalCount; generalIndex++) {
+        backgrounds.push({src: 'Portfolio/general/general%20(' + generalIndex + ').jpg'});
+    }
+    for (let portraitIndex = 1; portraitIndex <= portraitCount; portraitIndex++) {
+        backgrounds.push({src: 'Portfolio/portrait/portrait%20(' + portraitIndex + ').jpg'});
+    }
 
-    for(let natureIndex = 3; natureIndex <= natureCount; natureIndex++){
-        backgrounds.push({src: 'Portfolio/nature/nature%20('+natureIndex+').jpg'});
-    }
-    for(let animalIndex = 1; animalIndex <= animalCount; animalIndex++){
-        backgrounds.push({src: 'Portfolio/animal/animal%20('+animalIndex+').jpg'});
-    }
-    for(let bwIndex = 1; bwIndex <= bwCount; bwIndex++){
-        backgrounds.push({src: 'Portfolio/bw/bw%20('+bwIndex+').jpg'});
-    }
-    for(let generalIndex = 1; generalIndex <= generalCount; generalIndex++){
-        backgrounds.push({src: 'Portfolio/general/general%20('+generalIndex+').jpg'});
-    }
-    for(let portraitIndex = 1; portraitIndex <= portraitCount; portraitIndex++){
-        backgrounds.push({src: 'Portfolio/portrait/portrait%20('+portraitIndex+').jpg'});
-    }
-
-    $(function() {
+    $(function () {
         $('body').vegas({
             overlay: true,
             delay: 10000,
@@ -373,15 +364,15 @@
             transitionDuration: 8000,
             animation: 'random',
             animationDuration: 10000,
-            slides : backgrounds
+            slides: backgrounds
         });
     });
-   /* $.vegas('slideshow', {
-        delay: 10000,
-        backgrounds
-    })('overlay', {
-        src: './img/overlay.png'
-    });*/
+    /* $.vegas('slideshow', {
+         delay: 10000,
+         backgrounds
+     })('overlay', {
+         src: './img/overlay.png'
+     });*/
 
 </script>
 <!-- /Slideshow Background -->
@@ -433,7 +424,6 @@
 
 
     addGalleryItem(["animal"], "#animal1", "Portfolio/animal/animal%20(1).jpg", "Persian Cat", "horizontal", "animal1");
-
 
 
     addGalleryItem(["general"], "#general1", "Portfolio/general/general%20(1).jpg", "Charcoal", "horizontal", "general1");
