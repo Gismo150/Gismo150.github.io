@@ -17,6 +17,16 @@
     <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
     <!-- Vegas Slideshow CSS -->
     <link rel="stylesheet" href="/css/vegas.min.css">
+
+    <!-- Core CSS file -->
+    <link rel="stylesheet" href="css/photoswipe.css">
+
+    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+         In the folder of skin CSS file there are also:
+         - .png and .svg icons sprite,
+         - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="css/default-skin.css">
+
 </head>
 <body>
 <!-- Header Area -->
@@ -25,17 +35,35 @@
         <img class="img-rounded" alt="Company Logo" src="./img/profile-logo.jpg" width="100" height="96"/>
         <h2><em>Daniel Braun</em></h2>
         <h2><em>Photography & Coding</em></h2>
-        <ul class="list-inline">
-            <li><a target="_blank" href="https://www.facebook.com/daniel.braun.374"><i
-                    class="facebook links fab fa-facebook fa-3x"></i></a></li>
-            <li><a target="_blank" href="https://www.instagram.com/gismo_upb/"><i
-                    class="twitter links fab fa-instagram fa-3x"></i></a></li>
-            <li><a target="_blank" href="https://github.com/Gismo150"><i
-                    class="fab fa-github github fa-3x links"></i></a></li>
-            <li><a target="_blank" href="https://gitlab.com/GismoBr"><i
-                    class="fab fa-gitlab gitlab fa-3x links"></i></a></li>
-        </ul>
-        <br>
+        <div class="social-btns">
+            <ul class="list-inline">
+                <li>
+                    <a class="btn facebook" target="_blank" href="https://www.facebook.com/daniel.braun.374"><i
+                            class="fab fa-facebook-f fa-3x"></i></a>
+                </li>
+                <li>
+                    <a class="btn instagram" target="_blank" href="https://www.instagram.com/gismo_upb/"><i
+                            class="fab fa-instagram fa-3x"></i></a>
+                </li>
+                <li>
+                    <a class="btn github" target="_blank" href="https://github.com/Gismo150"><i
+                            class="fab fa-github fa-3x"></i></a>
+                </li>
+                <li>
+                    <a class="btn gitlab" target="_blank" href="https://gitlab.com/GismoBr"><i
+                            class="fab fa-gitlab fa-3x"></i></a>
+                </li>
+                <!--  <li><a target="_blank" href="https://www.facebook.com/daniel.braun.374"><i
+                          class="facebook links fab fa-facebook fa-3x"></i></a></li>
+                  <li><a target="_blank" href="https://www.instagram.com/gismo_upb/"><i
+                          class=" links fab fa-instagram fa-3x"></i></a></li>
+                  <li><a target="_blank" href="https://github.com/Gismo150"><i
+                          class="fab fa-github github fa-3x links"></i></a></li>
+                  <li><a target="_blank" href="https://gitlab.com/GismoBr"><i
+                          class="fab fa-gitlab gitlab fa-3x links"></i></a></li>-->
+            </ul>
+        </div>
+
         <a href="#about" class="btn btn-top"><i class="service-icon fa fa-angle-double-down fa-2x"></i></a>
     </div>
 </div>
@@ -151,36 +179,136 @@
 <div id="portfolio" class="portfolio">
     <div class="container">
         <div class="row push50">
-            <div class="col-md-6 col-md-offset-3 text-center">
+            <div class="col-md-4 col-md-offset-4 text-center">
                 <h2>Portfolio</h2>
                 <hr class="hrOnWhite">
-                <h3>
+                <!--<h3>
                     <span class="filter label label-default" data-filter="all">ALL</span>
                     <span class="filter label label-default" data-filter="bw">B&amp;W</span>
                     <span class="filter label label-default" data-filter="nature">Nature</span>
                     <span class="filter label label-default" data-filter="portraits">Portraits</span>
                     <span class="filter label label-default" data-filter="animal">Animals</span>
                     <span class="filter label label-default" data-filter="general">General</span>
-                </h3>
+                </h3>-->
                 <hr>
             </div>
         </div>
+    </div>
 
-        <div class="row">
+    <div class="row">
+        <div class="ownContainer">
             <div class="gallery">
-                <ul id="Grid" class="gcontainer">
-                </ul>
-                <!-- Load Photo in Modal -->
-                <div id="modal">
-                    <!-- /Load Photo in Modal -->
+                <h4>Nature</h4>
+                <div id="nature" class="my-gallery">
+
                 </div>
+                <button id="natureButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+            </div>
+
+            <div class="gallery">
+                <h4>General</h4>
+                <div id="general" class="my-gallery">
+
+                </div>
+                <button id="generalButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+            </div>
+
+            <div class="gallery">
+                <h4>Animal</h4>
+                <div id="animal" class="my-gallery">
+
+                </div>
+                <button id="animalButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+            </div>
+
+            <div class="gallery">
+                <h4>Black&White</h4>
+                <div id="bw" class="my-gallery">
+
+                </div>
+                <button id="bwButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+            </div>
+
+            <div class="gallery">
+                <h4>Portrait</h4>
+                <div id="portrait" class="my-gallery">
+
+                </div>
+                <button id="portraitButton" class="topmargin buttonPortfolio">VIEW MORE</button>
             </div>
         </div>
     </div>
 </div>
 <!-- /Portfolio -->
-<!-- workflow -->
 
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Root element of PhotoSwipe. Must have class pswp. -->
+
+
+<!-- workflow -->
 <div id="workflow" class="services">
     <div class="container">
         <div class="row">
@@ -330,9 +458,15 @@
 <script src="js/jquery.event.move.js"></script>
 <!--<script src="js/jquery.vegas.js"></script>-->
 <script src="js/jquery.twentytwenty.js"></script>
+<!-- Core JS file -->
+<script src="js/photoswipe.min.js"></script>
+<!-- UI JS file -->
+<script src="js/photoswipe-ui-default.min.js"></script>
+
 
 <!-- Slideshow Background  -->
 <script>
+    //TODO: put this into an onload function and keep index.html clean!
     //TODO: Keep those counters up to date!!
     let animalCount = 1,
         bwCount = 1,
@@ -372,63 +506,42 @@
 </script>
 <!-- /Slideshow Background -->
 
-<!--Create Gallery-->
+
 <script>
-    //TODO: maybe change to for loops
-    addGalleryItem(["bw"], "#bw1", "Portfolio/bw/bw%20(1).jpg", "Moon", "horizontal", "bw1");
+    <!--Create Gallery-->
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(1).jpg", "Portfolio/nature/nature%20(1).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(2).jpg", "Portfolio/nature/nature%20(2).jpg","6000x4000", "Olsberg");
+    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(3).jpg", "Portfolio/nature/nature%20(3).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(4).jpg", "Portfolio/nature/nature%20(4).jpg","3680x2760", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(5).jpg", "Portfolio/nature/nature%20(5).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(6).jpg", "Portfolio/nature/nature%20(6).jpg","6000x4000", "Olsberg");
+    //  addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(7).jpg", "Portfolio/nature/nature%20(7).jpg","4000x6000", "Olsberg");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(8).jpg", "Portfolio/nature/nature%20(8).jpg", "6000x4000", "Sunset/Flower");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(9).jpg", "Portfolio/nature/nature%20(9).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(10).jpg", "Portfolio/nature/nature%20(10).jpg","6000x4000", "Olsberg");
+    //  addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(11).jpg", "Portfolio/nature/nature%20(11).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(12).jpg", "Portfolio/nature/nature%20(12).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(13).jpg", "Portfolio/nature/nature%20(13).jpg","4000x6000", "Olsberg");
+    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(14).jpg", "Portfolio/nature/nature%20(14).jpg","6000x4000", "Olsberg");
+    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(15).jpg", "Portfolio/nature/nature%20(15).jpg","6000x4000", "Olsberg");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(16).jpg", "Portfolio/nature/nature%20(16).jpg", "4000x6000", "Roads");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(17).jpg", "Portfolio/nature/nature%20(17).jpg","6000x4000", "Olsberg");
+    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(18).jpg", "Portfolio/nature/nature%20(18).jpg","6000x4000", "Olsberg");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(36).jpg", "Portfolio/nature/nature%20(36).jpg", "6000x4000", "Railroads");
 
-    addGalleryItem(["nature"], "#nature1", "Portfolio/nature/nature%20(1).jpg", "Olsberg", "horizontal", "nature1");
-    addGalleryItem(["nature"], "#nature2", "Portfolio/nature/nature%20(2).jpg", "Olsberg", "horizontal", "nature2");
-    addGalleryItem(["nature", "animal"], "#nature3", "Portfolio/nature/nature%20(3).jpg", "Walkies with the cat", "horizontal", "nature3");
-    addGalleryItem(["nature"], "#nature4", "Portfolio/nature/nature%20(4).jpg", "Sunset", "horizontal", "nature4");
-    addGalleryItem(["nature"], "#nature5", "Portfolio/nature/nature%20(5).jpg", "Path", "horizontal", "nature5");
-    addGalleryItem(["nature"], "#nature6", "Portfolio/nature/nature%20(6).jpg", "Flower", "horizontal", "nature6");
-    addGalleryItem(["nature"], "#nature7", "Portfolio/nature/nature%20(7).jpg", "Wet Branches", "vertical", "nature7");
-    addGalleryItem(["nature"], "#nature8", "Portfolio/nature/nature%20(8).jpg", "Sunset/Flower", "horizontal", "nature8");
-    addGalleryItem(["nature"], "#nature9", "Portfolio/nature/nature%20(9).jpg", "Forest", "horizontal", "nature9");
-    addGalleryItem(["nature"], "#nature10", "Portfolio/nature/nature%20(10).jpg", "White Tree", "horizontal", "nature10");
-    addGalleryItem(["nature"], "#nature11", "Portfolio/nature/nature%20(11).jpg", "Sunset", "horizontal", "nature11");
-    addGalleryItem(["nature"], "#nature12", "Portfolio/nature/nature%20(12).jpg", "Red Flower", "horizontal", "nature12");
-    addGalleryItem(["nature"], "#nature13", "Portfolio/nature/nature%20(13).jpg", "Stonewall", "horizontal", "nature13");
-    addGalleryItem(["nature"], "#nature14", "Portfolio/nature/nature%20(14).jpg", "Pink Flower", "horizontal", "nature14");
-    addGalleryItem(["nature"], "#nature15", "Portfolio/nature/nature%20(15).jpg", "Weser Landkanal", "horizontal", "nature15");
-    addGalleryItem(["nature"], "#nature16", "Portfolio/nature/nature%20(16).jpg", "Roadside", "horizontal", "nature16");
-    addGalleryItem(["nature"], "#nature17", "Portfolio/nature/nature%20(17).jpg", "Flowers", "horizontal", "nature17");
-    addGalleryItem(["nature"], "#nature18", "Portfolio/nature/nature%20(18).jpg", "Old barn", "horizontal", "nature18");
-    addGalleryItem(["nature"], "#nature19", "Portfolio/nature/nature%20(19).jpg", "Clowdy Mountains", "horizontal", "nature19");
-    addGalleryItem(["nature"], "#nature20", "Portfolio/nature/nature%20(20).jpg", "Freezing River", "horizontal", "nature20");
-    addGalleryItem(["nature"], "#nature21", "Portfolio/nature/nature%20(21).jpg", "God Rays", "horizontal", "nature21");
-    addGalleryItem(["nature"], "#nature22", "Portfolio/nature/nature%20(22).jpg", "God Rays", "horizontal", "nature22");
-    addGalleryItem(["nature"], "#nature23", "Portfolio/nature/nature%20(23).jpg", "Forest Path", "horizontal", "nature23");
-    addGalleryItem(["nature"], "#nature24", "Portfolio/nature/nature%20(24).jpg", "Landscape", "horizontal", "nature24");
-    addGalleryItem(["nature"], "#nature25", "Portfolio/nature/nature%20(25).jpg", "Landscape", "horizontal", "nature25");
-    addGalleryItem(["nature"], "#nature26", "Portfolio/nature/nature%20(26).jpg", "River", "horizontal", "nature26");
-    addGalleryItem(["nature"], "#nature27", "Portfolio/nature/nature%20(27).jpg", "Raindrops", "horizontal", "nature27");
-    addGalleryItem(["nature"], "#nature28", "Portfolio/nature/nature%20(28).jpg", "Sunset", "horizontal", "nature28");
-    addGalleryItem(["nature"], "#nature29", "Portfolio/nature/nature%20(29).jpg", "Forest", "horizontal", "nature29");
-    addGalleryItem(["nature"], "#nature30", "Portfolio/nature/nature%20(30).jpg", "Old Branch", "horizontal", "nature30");
-    addGalleryItem(["nature"], "#nature31", "Portfolio/nature/nature%20(31).jpg", "Small river", "horizontal", "nature31");
-    addGalleryItem(["nature"], "#nature32", "Portfolio/nature/nature%20(32).jpg", "Sunset", "horizontal", "nature32");
-    addGalleryItem(["nature"], "#nature33", "Portfolio/nature/nature%20(33).jpg", "Cornfield", "horizontal", "nature33");
-    addGalleryItem(["nature"], "#nature34", "Portfolio/nature/nature%20(34).jpg", "River", "horizontal", "nature34");
-    addGalleryItem(["nature"], "#nature35", "Portfolio/nature/nature%20(35).jpg", "Nature", "horizontal", "nature35");
-    addGalleryItem(["nature"], "#nature36", "Portfolio/nature/nature%20(36).jpg", "Railroads", "horizontal", "nature36");
-    addGalleryItem(["nature"], "#nature37", "Portfolio/nature/nature%20(37).jpg", "Snowy Mountains", "horizontal", "nature37");
-    addGalleryItem(["nature"], "#nature38", "Portfolio/nature/nature%20(38).jpg", "Mountains", "horizontal", "nature38");
-    addGalleryItem(["nature"], "#nature39", "Portfolio/nature/nature%20(39).jpg", "Mountains", "horizontal", "nature39");
+    addImageToGallery("general", "Portfolio/thumbnail/general/general%20(1).jpg", "Portfolio/general/general%20(1).jpg", "6000x4000", "Charcoal");
+    addImageToGallery("general", "Portfolio/thumbnail/general/general%20(2).jpg", "Portfolio/general/general%20(2).jpg", "6000x4000", "Broken glass");
+    addImageToGallery("general", "Portfolio/thumbnail/general/general%20(6).jpg", "Portfolio/general/general%20(6).jpg", "6000x4000", "Dinner table");
+    addImageToGallery("general", "Portfolio/thumbnail/general/general%20(4).jpg", "Portfolio/general/general%20(4).jpg", "6000x4000", "Long Exposure");
+
+    addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "Persian Cat");
+    addImageToGallery("portrait", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "DUMMY PICTURE");
+
+    addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(1).jpg", "Portfolio/bw/bw%20(1).jpg", "1020x746", "Moon");
 
 
-    addGalleryItem(["animal"], "#animal1", "Portfolio/animal/animal%20(1).jpg", "Persian Cat", "horizontal", "animal1");
-
-
-    addGalleryItem(["general"], "#general1", "Portfolio/general/general%20(1).jpg", "Charcoal", "horizontal", "general1");
-    addGalleryItem(["general"], "#general2", "Portfolio/general/general%20(2).jpg", "Glass", "horizontal", "general2");
-    addGalleryItem(["general"], "#general3", "Portfolio/general/general%20(3).jpg", "Rose", "horizontal", "general3");
-    addGalleryItem(["general"], "#general4", "Portfolio/general/general%20(4).jpg", "Long Exposure", "horizontal", "general4");
-    addGalleryItem(["general"], "#general5", "Portfolio/general/general%20(5).jpg", "Long Exposure", "horizontal", "general5");
-    addGalleryItem(["general"], "#general6", "Portfolio/general/general%20(6).jpg", "Table/Food", "horizontal", "general6");
-
-
+    // execute function in script.js
+    initPhotoSwipeFromDOM('.my-gallery');
 </script>
 
 <!-- Mixitup : Grid -->

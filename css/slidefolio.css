@@ -31,6 +31,7 @@ cursor:pointer;
     display: none;
 	max-height:230px;
 }
+
 /* Navbar */
 #nav {
 margin-bottom:-20px;
@@ -128,6 +129,7 @@ border-radius:0px !important;
   position: relative;
 }
 .btn-top {
+margin: 10px 0;
 color:#f1f1f1;
 background:none repeat scroll 0 0 rgba(0, 0, 0, 0.57);
 border-color:#cccccc;
@@ -216,6 +218,7 @@ background:#f1f1f1;
 /* gallery */
 .gallery {
     overflow: hidden;
+    text-align: center;
 }
 .gallery:after {
     content: "";
@@ -359,23 +362,27 @@ footer {
 
 /* responsive */
 /* Small devices (tablets, 768px and up) */
-@media (max-width: 768px) { .navbar-brand {margin-left:20px;} .navbar-toggle {margin-right:25px;} #Grid .mix{margin-left:-25px;}}
-
+@media (max-width: 768px) {
+    .navbar-brand {margin-left:20px;}
+    .navbar-toggle {margin-right:25px;}
+    #Grid .mix{margin-left:-25px;}
+}
+/*
 .links{
     color: white;
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
-}
+}*/
 .imprint{
     color: darkblue;
 }
 .imprint:hover{
     color: black;
 }
+/*
 .facebook:hover{
     color: #3b5998;
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
 }
-
 .twitter:hover{
     color: #bc2a8d;
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
@@ -389,7 +396,7 @@ footer {
 .gitlab:hover{
     color: orangered;
     transition:  500ms cubic-bezier(0.02, 1, 0.95, 1),opacity 200ms ease-out;
-}
+}*/
 
 .hrOnWhite{
     margin-top: 20px;
@@ -397,3 +404,188 @@ footer {
     border: 0;
     border-top: 1px solid grey;
 }
+/*--GALLERY CSS--*/
+.my-gallery {
+   /* width: 100%;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.my-gallery img { /*container*/
+    width: 100%;
+    /*height: 165px;*/
+    object-fit: cover;
+}
+
+
+.my-gallery figure { /*inside the img container*/
+    margin: 0 15px 15px 15px;
+    max-width: 250px;
+    box-shadow: 0 0 15px 3px gray;
+    box-shadow: 0 0 15px;
+}
+
+.my-gallery figcaption {
+    display: none;
+}
+
+.ownContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/*--/GALLERY CSS--*/
+h4 {font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+    font-weight: normal;
+    font-size: 1.75em;
+    letter-spacing: .2em;
+    line-height: 1.1em;
+    margin: 0 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/*--BUTTON style "view More"--*/
+.topmargin{
+    margin: 10px 0 0 0;
+}
+
+.buttonPortfolio{
+    font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+    background: rgba(0, 0, 0, 0.51);
+    color:#fff;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+.buttonPortfolio:hover{
+    background:#fff;
+    color: #000000;
+}
+.buttonPortfolio:before,.buttonPortfolio:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #000000;
+    transition:400ms ease all;
+}
+.buttonPortfolio:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+.buttonPortfolio:hover:before,.buttonPortfolio:hover:after{
+    width:100%;
+    transition:800ms ease all;
+}
+/*--/BUTTON style "view More"--*/
+
+
+
+/*--Social-Media buttons at the top--*/
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fab {
+    transition: all 0.35s;
+    transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+.social-btns .btn:before {
+    top: 90%;
+    left: -110%;
+}
+.social-btns .btn .fab {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+
+.social-btns .btn.facebook:before {
+    background-color: #3b5998;
+}
+.social-btns .btn.facebook .fab {
+    color: #3b5998;
+}
+.social-btns .btn.instagram:before {
+    background-color: #bc2a8d;
+}
+.social-btns .btn.instagram .fab {
+    color: #bc2a8d;
+}
+.social-btns .btn.github:before {
+    background-color: black;
+}
+.social-btns .btn.github .fab {
+    color: black;
+}
+.social-btns .btn.gitlab:before {
+    background-color: orangered;
+}
+.social-btns .btn.gitlab .fab {
+    color: orangered;
+}
+.social-btns .btn.skype:before {
+    background-color: #00aff0;
+}
+.social-btns .btn.skype .fab {
+    color: #00aff0;
+}
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+    top: -10%;
+    left: -10%;
+}
+.social-btns .btn:focus .fab,
+.social-btns .btn:hover .fab{
+    color: #fff;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.social-btns {
+    height: 90px;
+    margin: 0 0 0 0;
+    font-size: 0;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.social-btns .btn {
+    display: inline-block;
+   /* background-color: rgba(128, 128, 128, 0.69);*/
+    width: 70px;
+    height: 70px;
+    line-height: 60px;
+    margin: 10px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28%;
+   /* box-shadow: 0 5px 15px -5px rgba(0,0,0,0.1);*/
+    opacity: 0.99;
+}
+.social-btns .btn:before {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.social-btns .btn .fab{
+     font-size: 38px;
+     vertical-align: middle;
+ }
+/*--/Social-Media buttons at the top--*/
