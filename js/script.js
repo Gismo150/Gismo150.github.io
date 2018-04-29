@@ -50,6 +50,7 @@ function addImageToGallery(galleryId, srcThumbnail, src, data_size, description)
     let id = document.getElementById(galleryId);
 
     let fig = document.createElement("figure");
+    //fig.classList.add("effect-julia");
 
     let a  = document.createElement("a");
 
