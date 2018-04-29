@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Nature</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet"> <!--CDN?-->
+    <!-- Add custom CSS here -->
+    <link href="css/slidefolio.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- Core Photoswipe CSS file -->
+    <link rel="stylesheet" href="css/photoswipe.css">
+    <!-- Skin Photoswipe CSS file (styling of UI - buttons, caption, etc.)
+      In the folder of skin CSS file there are also:
+      - .png and .svg icons sprite,
+      - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="css/default-skin.css">
+</head>
+<body>
+
+<div id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="row push50">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2>Nature</h2>
+                <hr class="hrOnWhite">
+                <!--<h3>
+                    <span class="filter label label-default" data-filter="all">ALL</span>
+                    <span class="filter label label-default" data-filter="bw">B&amp;W</span>
+                    <span class="filter label label-default" data-filter="nature">Nature</span>
+                    <span class="filter label label-default" data-filter="portraits">Portraits</span>
+                    <span class="filter label label-default" data-filter="animal">Animals</span>
+                    <span class="filter label label-default" data-filter="general">General</span>
+                </h3>-->
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ownContainer">
+        <div class="gallery">
+            <div id="nature" class="my-gallery">
+            </div>
+        </div>
+        <div class="gallery">
+            <div id="nature1" class="my-gallery">
+            </div>
+        </div>
+        <div class="gallery">
+            <div id="nature2" class="my-gallery">
+            </div>
+        </div>
+        <div class="gallery">
+            <div id="nature3" class="my-gallery">
+            </div>
+        </div>
+        <div class="gallery">
+            <div id="nature4" class="my-gallery">
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+<!-- /Portfolio -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Root element of PhotoSwipe. Must have class pswp. -->
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2>Photography | Coding</h2>
+                <em>Copyright &copy; Daniel Braun 2018 |
+                    <a id="imprint" class="imprint" target="_blank" href="imprint.html"> Imprint</a></em>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="js/jquery.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="js/bootstrap.js"></script>
+<!-- Core JS file -->
+<script src="js/photoswipe.min.js"></script>
+<!-- UI JS file -->
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    <!--Create Gallery-->
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(1).jpg", "Portfolio/nature/nature%20(1).jpg","6000x4000", "Location: Hochsauerlandkreis, Olsberg; Stone mountains.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(2).jpg", "Portfolio/nature/nature%20(2).jpg","6000x4000", "Location: Hochsauerlandkreis, Olsberg.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(3).jpg", "Portfolio/nature/nature%20(3).jpg", "4000x6000", "Old well pump.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(4).jpg", "Portfolio/nature/nature%20(4).jpg","3680x2760", "Location: Bad Lippsrpinge; Sunset.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(5).jpg", "Portfolio/nature/nature%20(5).jpg","6000x4000", "Hidden path.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(6).jpg", "Portfolio/nature/nature%20(6).jpg","6000x4000", "Grabapple tree [Malus Rudolph].");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(7).jpg", "Portfolio/nature/nature%20(7).jpg","4000x6000", "Close up; Fern.");
+    addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(8).jpg", "Portfolio/nature/nature%20(8).jpg", "6000x4000", "Pampas grass [Cortaderia selloana].");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(9).jpg", "Portfolio/nature/nature%20(9).jpg","6000x4000", "Location: Sauerland, Brilon; Mountain view.");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(10).jpg", "Portfolio/nature/nature%20(10).jpg","6000x4000", "Cherry tree.");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(11).jpg", "Portfolio/nature/nature%20(11).jpg","6000x4000", "Sunset.");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(12).jpg", "Portfolio/nature/nature%20(12).jpg","6000x4000", "???");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(13).jpg", "Portfolio/nature/nature%20(13).jpg","4000x6000", "Moss-covered stonewall.");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(14).jpg", "Portfolio/nature/nature%20(14).jpg","6000x4000", "???");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(15).jpg", "Portfolio/nature/nature%20(15).jpg","6000x4000", "Location: Minden; Weselandkanal.");
+    addImageToGallery("nature1", "Portfolio/thumbnail/nature/nature%20(16).jpg", "Portfolio/nature/nature%20(16).jpg", "4000x6000", "Location: Minden; Bumpy road.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(17).jpg", "Portfolio/nature/nature%20(17).jpg","6000x4000", "Cherry tree.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(18).jpg", "Portfolio/nature/nature%20(18).jpg","6000x4000", "Location: Minden; Old barn.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(19).jpg", "Portfolio/nature/nature%20(19).jpg", "6000x4000", "Location: Bruchhausen; Mountain stones.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(20).jpg", "Portfolio/nature/nature%20(20).jpg", "6000x4000", "Location: Minden; Weserlandkanal in winter.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(21).jpg", "Portfolio/nature/nature%20(21).jpg", "6000x4000", "Location: Sauerland, Brilon; God rays");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(22).jpg", "Portfolio/nature/nature%20(22).jpg", "6000x4000", "Location: Sauerland, Brilon; God rays");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(23).jpg", "Portfolio/nature/nature%20(23).jpg", "6000x4000", "Forest path.");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(24).jpg", "Portfolio/nature/nature%20(24).jpg", "6000x4000", "Location: Porta Westfalica lookout. ");
+    addImageToGallery("nature2", "Portfolio/thumbnail/nature/nature%20(25).jpg", "Portfolio/nature/nature%20(25).jpg", "3476x3719", "Location: Hochsauerlandkreis, Olsberg. Mountain view.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(26).jpg", "Portfolio/nature/nature%20(26).jpg", "6000x4000", "Location: Sauerland, Brilon. Small river.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(27).jpg", "Portfolio/nature/nature%20(27).jpg", "6000x4000", "Location: Sauerland, Brilon. Dam.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(28).jpg", "Portfolio/nature/nature%20(28).jpg", "6000x4000", "Location: Porta Westfalica lookout; Sunset");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(29).jpg", "Portfolio/nature/nature%20(29).jpg", "4000x6000", "Forest path.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(30).jpg", "Portfolio/nature/nature%20(30).jpg", "6000x4000", "Old branch.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(31).jpg", "Portfolio/nature/nature%20(31).jpg", "4000x6000", "Location: Hochsauerlandkreis, Olsberg; Little waterfall.");
+    addImageToGallery("nature3", "Portfolio/thumbnail/nature/nature%20(32).jpg", "Portfolio/nature/nature%20(32).jpg", "6000x4000", "Location: Porta Westfalica lookout; Sunset");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(33).jpg", "Portfolio/nature/nature%20(33).jpg", "6000x4000", "Cornfield");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(34).jpg", "Portfolio/nature/nature%20(34).jpg", "4000x6000", "Location: Bad Lippspringe. Strong river.");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(35).jpg", "Portfolio/nature/nature%20(35).jpg", "4000x6000", "Location: Hochsauerlandkreis, Olsberg. Spring.");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(36).jpg", "Portfolio/nature/nature%20(36).jpg", "6000x4000", "Location: Büren, Weine; Disused railway.");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(37).jpg", "Portfolio/nature/nature%20(37).jpg", "6000x4000", "Location: Hochsauerlandkreis, Olsberg.");
+    addImageToGallery("nature4", "Portfolio/thumbnail/nature/nature%20(38).jpg", "Portfolio/nature/nature%20(38).jpg", "6000x4000", "Location: Bruchhausen; Bruchhäuser Steine.");
+
+    // execute function in script.js
+    initPhotoSwipeFromDOM('.my-gallery');
+</script>
+
+
+</body>
+</html>

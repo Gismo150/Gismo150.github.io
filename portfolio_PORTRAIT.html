@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Nature</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet"> <!--CDN?-->
+    <!-- Add custom CSS here -->
+    <link href="css/slidefolio.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- Core Photoswipe CSS file -->
+    <link rel="stylesheet" href="css/photoswipe.css">
+    <!-- Skin Photoswipe CSS file (styling of UI - buttons, caption, etc.)
+      In the folder of skin CSS file there are also:
+      - .png and .svg icons sprite,
+      - preloader.gif (for browsers that do not support CSS animations) -->
+    <link rel="stylesheet" href="css/default-skin.css">
+</head>
+<body>
+
+<div id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="row push50">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2>Portrait</h2>
+                <hr class="hrOnWhite">
+                <!--<h3>
+                    <span class="filter label label-default" data-filter="all">ALL</span>
+                    <span class="filter label label-default" data-filter="bw">B&amp;W</span>
+                    <span class="filter label label-default" data-filter="nature">Nature</span>
+                    <span class="filter label label-default" data-filter="portraits">Portraits</span>
+                    <span class="filter label label-default" data-filter="animal">Animals</span>
+                    <span class="filter label label-default" data-filter="general">General</span>
+                </h3>-->
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ownContainer">
+        <div class="gallery">
+            <div id="portrait" class="my-gallery">
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- /Portfolio -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Root element of PhotoSwipe. Must have class pswp. -->
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <h2>Photography | Coding</h2>
+                <em>Copyright &copy; Daniel Braun 2018 |
+                    <a id="imprint" class="imprint" target="_blank" href="imprint.html"> Imprint</a></em>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /Footer -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="js/jquery.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="js/bootstrap.js"></script>
+<!-- Core JS file -->
+<script src="js/photoswipe.min.js"></script>
+<!-- UI JS file -->
+<script src="js/photoswipe-ui-default.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    <!--Create Gallery-->
+    //addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(1).jpg", "Portfolio/portrait/portrait%20(1).jpg","6000x4000", "???.");
+
+    // execute function in script.js
+    initPhotoSwipeFromDOM('.my-gallery');
+</script>
+
+
+</body>
+</html>

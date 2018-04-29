@@ -2,6 +2,7 @@
 
 html,
 body {
+    background: #f1f1f1;
   height: 100%;
   width: 100%;
 }
@@ -434,7 +435,14 @@ footer {
 .ownContainer{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 /*--/GALLERY CSS--*/
 h4 {font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;

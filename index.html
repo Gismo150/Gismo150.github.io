@@ -18,10 +18,10 @@
     <!-- Vegas Slideshow CSS -->
     <link rel="stylesheet" href="/css/vegas.min.css">
 
-    <!-- Core CSS file -->
+    <!-- Core Photoswipe CSS file -->
     <link rel="stylesheet" href="css/photoswipe.css">
 
-    <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+    <!-- Skin Photoswipe CSS file (styling of UI - buttons, caption, etc.)
          In the folder of skin CSS file there are also:
          - .png and .svg icons sprite,
          - preloader.gif (for browsers that do not support CSS animations) -->
@@ -202,7 +202,9 @@
                 <div id="nature" class="my-gallery">
 
                 </div>
-                <button id="natureButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+                <a target="_blank" href="portfolio_NATURE.html">
+                 <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>
             </div>
 
             <div class="gallery">
@@ -210,7 +212,9 @@
                 <div id="general" class="my-gallery">
 
                 </div>
-                <button id="generalButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+                <a target="_blank" href="portfolio_GENERAL.html">
+                <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>
             </div>
 
             <div class="gallery">
@@ -218,7 +222,9 @@
                 <div id="animal" class="my-gallery">
 
                 </div>
-                <button id="animalButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+               <!-- <a target="_blank" href="portfolio_ANIMAL.html">
+                <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>-->
             </div>
 
             <div class="gallery">
@@ -226,16 +232,20 @@
                 <div id="bw" class="my-gallery">
 
                 </div>
-                <button id="bwButton" class="topmargin buttonPortfolio">VIEW MORE</button>
+               <!-- <a target="_blank" href="portfolio_BW.html">
+                <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>-->
             </div>
 
-            <div class="gallery">
+            <!--<div class="gallery">
                 <h4>Portrait</h4>
                 <div id="portrait" class="my-gallery">
 
                 </div>
-                <button id="portraitButton" class="topmargin buttonPortfolio">VIEW MORE</button>
-            </div>
+                <a target="_blank" href="portfolio_PORTRAIT.html">
+                <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>
+            </div>-->
         </div>
 </div>
 <!-- /Portfolio -->
@@ -325,7 +335,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 text-center">
+           <!-- <div class="col-md-6 text-center">
                 <div class="service-item">
                     <div id='worflow4' class="twentytwenty-container">
                         <img src='workflow/nature%20(21)%20before.jpg'>
@@ -333,8 +343,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div>-->
+       <!-- <div class="row">
             <div class="col-md-6 text-center">
                 <div class="service-item">
                     <div id='worflow6' class="twentytwenty-container">
@@ -342,7 +352,7 @@
                         <img src='Portfolio/nature/nature%20(33).jpg'>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="col-md-6 text-center">
                 <div class="service-item">
                     <div id='worflow7' class="twentytwenty-container">
@@ -469,8 +479,8 @@
     //TODO: Keep those counters up to date!!
     let animalCount = 1,
         bwCount = 1,
-        generalCount = 6,
-        natureCount = 39,
+        generalCount = 7,
+        natureCount = 38,
         portraitCount = 0;
     let backgrounds = [];
     for (let natureIndex = 1; natureIndex <= natureCount; natureIndex++) {
@@ -508,24 +518,8 @@
 
 <script>
     <!--Create Gallery-->
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(1).jpg", "Portfolio/nature/nature%20(1).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(2).jpg", "Portfolio/nature/nature%20(2).jpg","6000x4000", "Olsberg");
-    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(3).jpg", "Portfolio/nature/nature%20(3).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(4).jpg", "Portfolio/nature/nature%20(4).jpg","3680x2760", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(5).jpg", "Portfolio/nature/nature%20(5).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(6).jpg", "Portfolio/nature/nature%20(6).jpg","6000x4000", "Olsberg");
-    //  addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(7).jpg", "Portfolio/nature/nature%20(7).jpg","4000x6000", "Olsberg");
     addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(8).jpg", "Portfolio/nature/nature%20(8).jpg", "6000x4000", "Sunset/Flower");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(9).jpg", "Portfolio/nature/nature%20(9).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(10).jpg", "Portfolio/nature/nature%20(10).jpg","6000x4000", "Olsberg");
-    //  addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(11).jpg", "Portfolio/nature/nature%20(11).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(12).jpg", "Portfolio/nature/nature%20(12).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(13).jpg", "Portfolio/nature/nature%20(13).jpg","4000x6000", "Olsberg");
-    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(14).jpg", "Portfolio/nature/nature%20(14).jpg","6000x4000", "Olsberg");
-    //addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(15).jpg", "Portfolio/nature/nature%20(15).jpg","6000x4000", "Olsberg");
     addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(16).jpg", "Portfolio/nature/nature%20(16).jpg", "4000x6000", "Roads");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(17).jpg", "Portfolio/nature/nature%20(17).jpg","6000x4000", "Olsberg");
-    // addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(18).jpg", "Portfolio/nature/nature%20(18).jpg","6000x4000", "Olsberg");
     addImageToGallery("nature", "Portfolio/thumbnail/nature/nature%20(36).jpg", "Portfolio/nature/nature%20(36).jpg", "6000x4000", "Railroads");
 
     addImageToGallery("general", "Portfolio/thumbnail/general/general%20(1).jpg", "Portfolio/general/general%20(1).jpg", "6000x4000", "Charcoal");
@@ -534,22 +528,17 @@
     addImageToGallery("general", "Portfolio/thumbnail/general/general%20(4).jpg", "Portfolio/general/general%20(4).jpg", "6000x4000", "Long Exposure");
 
     addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "Persian Cat");
-    addImageToGallery("portrait", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "DUMMY PICTURE");
 
     addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(1).jpg", "Portfolio/bw/bw%20(1).jpg", "1020x746", "Moon");
+   // addImageToGallery("portrait", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "DUMMY PICTURE");
+
+
 
 
     // execute function in script.js
     initPhotoSwipeFromDOM('.my-gallery');
 </script>
 
-<!-- Mixitup : Grid -->
-<script>
-    $(function () {
-        $('#Grid').mixitup();
-    });
-</script>
-<!-- /Mixitup : Grid -->
 
 <!-- Custom JavaScript for Smooth Scrolling - Put in a custom JavaScript file to clean this up -->
 <script>
