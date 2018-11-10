@@ -422,12 +422,25 @@ footer {
 }
 
 
+.imgPortfolio:hover{
+    color: green;
+
+}
 
 .my-gallery figure { /*inside the img container*/
     margin: 0 15px 15px 15px;
     max-width: 250px;
-    box-shadow: 0 0 15px 3px gray;
-    box-shadow: 0 0 15px;
+    box-shadow: 0 0 5px 3px gray;
+    box-shadow: 0 0 5px;
+
+    transition: all .3s ease-in-out;
+}
+
+.my-gallery figure:hover { /*inside the img container*/
+    box-shadow: 0 0 20px 3px gray;
+    box-shadow: 0 0 20px;
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
 }
 
 .my-gallery figcaption {
