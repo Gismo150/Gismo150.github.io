@@ -209,6 +209,16 @@
             </div>
 
             <div class="gallery">
+                <h4>Animal</h4>
+                <div id="animal" class="my-gallery">
+
+                </div>
+                <a target="_blank" href="portfolio_ANIMAL.html">
+                    <button class="topmargin buttonPortfolio">VIEW MORE</button>
+                </a>
+            </div>
+
+            <div class="gallery">
                 <h4>Nature</h4>
 
                 <div id="nature" class="my-gallery">
@@ -240,15 +250,7 @@
                 <button class="topmargin buttonPortfolio">VIEW MORE</button>
                 </a>-->
             </div>
-            <div class="gallery">
-                <h4>Animal</h4>
-                <div id="animal" class="my-gallery">
 
-                </div>
-                <!-- <a target="_blank" href="portfolio_ANIMAL.html">
-                 <button class="topmargin buttonPortfolio">VIEW MORE</button>
-                 </a>-->
-            </div>
         </div>
 </div>
 <!-- /Portfolio -->
@@ -480,11 +482,11 @@
 <script>
     //TODO: put this into an onload function and keep index.html clean!
     //TODO: Keep those counters up to date!!
-    let animalCount = 1,
-        bwCount = 1,
-        generalCount = 7,
-        natureCount = 38,
-        portraitCount = 0;
+    let animalCount = 7,
+        bwCount = 4,
+        generalCount = 11,
+        natureCount = 48,
+        portraitCount = 15;
     let backgrounds = [];
     for (let natureIndex = 1; natureIndex <= natureCount; natureIndex++) {
         backgrounds.push({src: 'Portfolio/thumbnail/nature/nature%20(' + natureIndex + ').jpg'});
@@ -531,13 +533,18 @@
     addImageToGallery("general", "Portfolio/thumbnail/general/general%20(4).jpg", "Portfolio/general/general%20(4).jpg", "6000x4000", "Long Exposure");
 
     addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(1).jpg", "Portfolio/animal/animal%20(1).jpg", "6000x4000", "Persian Cat");
+    addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(4).jpg", "Portfolio/animal/animal%20(4).jpg","6000x4000", "Old buddy.");
+    addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(6).jpg", "Portfolio/animal/animal%20(6).jpg","6000x4000", "Sleepy tiger.");
+    addImageToGallery("animal", "Portfolio/thumbnail/animal/animal%20(7).jpg", "Portfolio/animal/animal%20(7).jpg","3508x5262", "Grey parrot.");
 
     addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(1).jpg", "Portfolio/bw/bw%20(1).jpg", "1020x746", "Moon");
     addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(2).jpg", "Portfolio/bw/bw%20(2).jpg","6000x4000", "Moon.");
+    addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(3).jpg", "Portfolio/bw/bw%20(3).jpg","6000x4000", "Vineyards in winter.");
+    addImageToGallery("bw", "Portfolio/thumbnail/bw/bw%20(4).jpg", "Portfolio/bw/bw%20(4).jpg","6000x4000", "Vineyards in winter.");
 
     addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(1).jpg", "Portfolio/portrait/portrait%20(1).jpg", "4000x4485", "Gorgeous portrait shot of Angelika. [IG: @angelikapfaffengut]");
     addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(11).jpg", "Portfolio/portrait/portrait%20(11).jpg", "2636x3762", "Location: Minden; Portrait Shooting.");
-    //addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(3).jpg", "Portfolio/portrait/portrait%20(3).jpg", "6000x4000", "Shooting in the woods with Denise & Angelika [IG: @d93be & @angelikapfaffengut]");
+    addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(3).jpg", "Portfolio/portrait/portrait%20(3).jpg", "6000x4000", "Shooting in the woods with Denise & Angelika [IG: @d93be & @angelikapfaffengut]");
     addImageToGallery("portrait", "Portfolio/thumbnail/portrait/portrait%20(4).jpg", "Portfolio/portrait/portrait%20(4).jpg", "5316x4000", "Tastes way to good!");
 
 
